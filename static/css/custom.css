@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700');
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#logo {
+    width: 20%;
+}
+
+.jumbotron {
+    min-height: 65vh;
+}
+
+.home-jumbo {
+    background-image: url("../images/home-jumbo-img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    #logo {
+        width: 10%;
+    }
+}
+@media (min-width: 1024px) {
+    #logo {
+        width: 6%;
+    }
+}
