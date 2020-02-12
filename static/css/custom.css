@@ -4,12 +4,22 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+/*--------------------------------------------------- Nav*/
 #logo {
     width: 20%;
 }
 
+/*--------------------------------------------------- Jumbotrons*/
 .jumbotron {
     min-height: 65vh;
+}
+
+#jumbo-login {
+    margin-bottom: 0;
+    background-image: url("../images/form-jumbo-4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .home-jumbo {
@@ -19,6 +29,13 @@ body {
     background-size: cover;
 }
 
+/*--------------------------------------------------- forms*/
+.login-form, .sign-up-form {
+    border-radius: 1%;
+    background-color: #e9ecef;
+}
+
+/*--------------------------------------------------- Media Queries*/
 @media (min-width: 768px) {
     #logo {
         width: 10%;
