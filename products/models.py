@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -7,7 +8,7 @@ class Category(models.Model):
     categories and features to show on home page """
 
     slug = models.SlugField()
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=150)
     featured = models.BooleanField(default=False)
 
     class Meta:
@@ -20,7 +21,7 @@ class Product(models.Model):
     """ Model for Products """
     
     slug = models.SlugField(editable=False)
-    name = models.CharField(max_length=250, default='Product')
+    name = models.CharField(max_length=150, default='Product')
     image = models.ImageField(upload_to='products', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     summary = models.TextField(max_length=200, verbose_name="Summary")
@@ -32,3 +33,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        # When model is saved, get the product name and slugify then save to model
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Product, self).save(*args, **kwargs)
