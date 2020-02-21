@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from home.views import index, about, contact
 from accounts import urls as urls_accounts
+from products import urls as urls_products
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^about/', about, name='about'),
     url(r'^contact/', contact, name='contact'),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^products/', include(urls_products, namespace='products')),
 ]
