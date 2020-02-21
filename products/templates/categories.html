@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Products - {{ category.title }}{% endblock %}
+
+{% block content %}
+{% for product in page_obj %}
+{% if product %}
+{{ product.name }}
+{% else %}
+<p>no products</p>
+{% endfor %}
+{% endblock %}
