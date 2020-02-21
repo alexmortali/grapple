@@ -32,7 +32,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, default=9.99)
 
     def get_url(self):
-        return reverse('poducts:product_detail', args=[self.slug])
+        return reverse('products:product_detail', args=[self.slug])
 
     def __str__(self):
         return self.name
