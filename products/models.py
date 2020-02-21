@@ -16,6 +16,9 @@ class Category(models.Model):
         ordering = ['title']
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+    
+    def get_absolute_url(self):
+        return reverse('products:category', args=[self.slug])
 
     def __str__(self):
         return self.title
@@ -25,13 +28,13 @@ class Product(models.Model):
     
     slug = models.SlugField(max_length=150, unique=True)
     name = models.CharField(max_length=150, default='Product')
-    image = models.ImageField(upload_to='products', blank=True)
+    image = models.ImageField(upload_to='products/media/category_images', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     summary = models.TextField(max_length=200, verbose_name="Summary")
     description = models.TextField(max_length=1000, verbose_name="Description")
     price = models.DecimalField(max_digits=6, decimal_places=2, default=9.99)
 
-    def get_url(self):
+    def get_absolute_url(self):
         return reverse('products:product_detail', args=[self.slug])
 
     def __str__(self):
