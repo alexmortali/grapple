@@ -35,12 +35,11 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/">All Products</a>
+            <a class="dropdown-item" href="{% url 'products:all_products' %}">All Products</a>
             <div class="dropdown-divider"></div>
-            <!-- for loop
-                for ...
-                endfor
-                -->
+            {% for category in categories %}
+              <a class="dropdown-item" href="{% url 'products:category' category.slug %}">{{ category.title }}</a>
+            {% endfor %}
           </div>
         </li>
         <li class="nav-item">
