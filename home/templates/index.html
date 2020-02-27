@@ -6,8 +6,26 @@
 <div class="jumbotron jumbotron-fluid home-jumbo jumbo-background">
 </div>
 <div class="container">
-    <div class="text-center">
-        <h1>Featured Categories</h1>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Featured Categories</h1>
+        </div>
+    </div>
+    <div class="row mx-auto justify-content-center">
+        {% for category in categories %}
+            {% if category.featured %}
+                <div class="col-12 col-sm-6 col-md-4 ">
+                    <a href="{% url 'products:list_of_products_by_category' category.slug %}">
+                        <div class="category-section">
+                            <div class="cat-image" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
+                            <div class="category-title text-center">
+                                {{ category.title|title }}
+                            </div>
+                        </div> 
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
