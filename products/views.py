@@ -1,49 +1,26 @@
-from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView
-from django.views.generic.detail import SingleObjectMixin
+from django.shortcuts import render, get_object_or_404
 from .forms import QuantityForm, SizeForm
 from .models import Category, Product
 # Create your views here.
 
-class All_Products(ListView):
-    """ List view for all products """
+def list_of_products_by_category(request, category_slug):
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    template = 'list_of_products_by_category.html'
+    context = {'categories': categories, 'products': products, 'category': category}
+    return render(request, template, context)
 
-    template_name = "products/categories.html"
-    queryset = Product.objects.all()
+def list_of_products(request):
+    products = Product.objects.all()
+    template = 'list_of_products.html'
+    context = {'products': products}
+    return render(request, template, context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['category'] = 'All Products'
-        return context
-
-    def get_queryset(self):
-        return self.queryset
-
-class SingleCategoryView(SingleObjectMixin, All_Products):
-    """ View inheriting from All_products to show products within a 
-        single category """
-
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object(queryset=Category.objects.all())
-        return super().get(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['category'] = self.object
-        return context
-
-    def get_queryset(self):
-        return self.object.product_set
-
-class ProductDetailView(DetailView):
-    """ Single Product view, uses detail view to show a single product """
-
-    model = Product
-    template_name = 'products/product_detail.html'
-    context_object_name = 'product'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form1'] = QuantityForm()
-        context['form2'] = SizeForm()
-        return context
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    template = 'product_detail.html'
+    context = {'product': product}
+    return render(request, template, context)
