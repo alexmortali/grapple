@@ -10,7 +10,7 @@ class Category(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150, unique=True)
     featured = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='products', blank=True)
+    image = models.ImageField(upload_to='images', blank=True)
 
     class Meta:
         ordering = ['title']
@@ -29,7 +29,7 @@ class Product(models.Model):
     name = models.CharField(max_length=150, default='Product')
     slug = models.SlugField(max_length=150, unique=True)
     category = models.ForeignKey(Category)
-    image = models.ImageField(upload_to='products/media/category_images', blank=True)
+    image = models.ImageField(upload_to='images', blank=True)
     summary = models.TextField(max_length=200, verbose_name="Summary")
     description = models.TextField(max_length=1000, verbose_name="Description")
     price = models.DecimalField(max_digits=6, decimal_places=2, default=9.99)
