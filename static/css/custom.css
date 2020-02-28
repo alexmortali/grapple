@@ -4,6 +4,24 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.font-color {
+    text-decoration: none;
+    color: rgba(0,0,0,.9);
+}
+
+.font-color:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.9);
+}
+
+.link {
+    font-size: 100%;
+}
+
+.link:hover {
+    font-size: 120%;
+}
+
 /*--------------------------------------------------- Nav*/
 #logo {
     width: 20%;
@@ -43,8 +61,8 @@ body {
 }
 
 .cat-image {
-    width: 50%;
-    margin-left: 25%;
+    width: 60%;
+    margin-left: 20%;
     height: 90%;
     background-position: center;
     background-size: contain;
@@ -66,5 +84,9 @@ body {
 @media (min-width: 1024px) {
     #logo {
         width: 6%;
+    }
+
+    .category-section {
+        height: 250px;
     }
 }
