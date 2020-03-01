@@ -22,5 +22,7 @@ def list_of_products(request):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     template = 'product_detail.html'
-    context = {'product': product}
+    context = {'product': product,
+               'Quantity': QuantityForm,
+               'Size': SizeForm}
     return render(request, template, context)
