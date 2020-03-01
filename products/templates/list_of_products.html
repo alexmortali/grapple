@@ -23,9 +23,15 @@
                 </div>
             {% endfor %}
         {% else %}
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-                <p>We currently have no {{ category.title }} available.. Why not check out our available products here</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-8 col-offset-2">
+                    <p class="no-products-text text-center mt-3">
+                        We currently have no {{ category.title }} available.. 
+                        Why not check out all of our available products 
+                        <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                    </p>
+                </div>
             </div>
         </div>
         {% endif %}        
