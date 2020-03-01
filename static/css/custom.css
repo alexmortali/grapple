@@ -102,6 +102,23 @@ body {
     text-decoration: underline;
 }
 
+/*--------------------------------------------------- Product Detail*/
+.product-detail-image {
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.add-to-cart-section {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);;
+}
+
+.description-list {
+    list-style-type: circle;
+}
+
 /*--------------------------------------------------- forms*/
 .login-form, .sign-up-form {
     border-radius: 1%;
