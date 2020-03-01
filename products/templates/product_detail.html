@@ -1,8 +1,51 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }}{% endblock %}
+{% load bootstrap_tags %}
+
+{% block title %}{{ product.name|title }}{% endblock %}
 
 {% block content %}
-{{ product.name }}
-{{ product.summary }}
+<div class="container">
+    <h1 class="page-title mt-5 mb-3">{{ product.name|title }}</h1>
+    <div class="row mt-5">
+        <div class="col-12 col-md-8 mb-4">
+            <div class="product-detail-image" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+        </div>
+        <div class="col-12 col-md-4 add-to-cart-section my-3">
+            <div>£{{ product.price }}</div>
+            <form action="/" method="post">
+                {% csrf_token %}
+                {{ Quantity | as_bootstrap }}
+                {{ Size | as_bootstrap }}
+                <button class="btn btn-success" type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 col-md-8">
+            <div class="product-details pt-3">
+                <h3 class="page-title">Description</h3>
+                <p>{{ product.description }}</p>
+                <hr class="my-4">
+                <h3 class="page-title">Shipping</h3>
+                <p>With all of our products we offer free global shipping! Depending on where you are 
+                    are ordering from shipping times can vary..</p>
+                <ul class="description-list">
+                    <li>Uk and Ireland: 3-5 days</li>
+                    <li>Rest of Europe: 5-7 days</li>
+                    <li>North America: 7-10 days</li>
+                    <li>Australia: 7-10 days</li>
+                    <li>Rest of the World: 14+ days</li>
+                </ul>
+                </p>
+                <hr class="my-4">
+                <h3 class="page-title">Returns</h3>
+                <p class="information-text">We accept all returns within 30days of purchase date no matter the reason.
+                    Please used the pre printed label you will find with your order to return your 
+                    item to us. Return address found <a href="/about/"><i>here</i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
