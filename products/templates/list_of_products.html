@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}All Products{% endblock %}
+{% block title %}
+{{ page_title }}
+{% endblock %}
 
 {% block content %}
 <div class="jumbotron jumbotron-fluid products-jumbo jumbo-background"></div>
 <div class="container">
-    <h1 class="mt-4 page-title">All Products</h1>
+    {% if search_request %}
+        <h1 class="mt-4 page-title">{{ page_title }} - <i>{{  search_request}}</i></h1>
+    {% else %}
+        <h1 class="mt-4 page-title">{{ page_title }}</h1>
+    {% endif %}
     <div class="row justify-content-center">
         {% if products %}
             {% for product in products %}
@@ -27,9 +33,19 @@
             <div class="row justify-content-center">
                 <div class="col-8 col-offset-2">
                     <p class="no-products-text text-center mt-3">
-                        We currently have no {{ category.title }} available.. 
-                        Why not check out all of our available products 
-                        <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        {% if category.title %}
+                            We currently have no {{ category.title }} available.. 
+                            Why not check out all of our available products 
+                            <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        {% elif search_request %}
+                            We currently have no <i>{{ search_request}}</i> available.. 
+                            Why not check out all of our available products 
+                            <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        {% else %}
+                            We currently have no products available.. 
+                            Why not check out all of our available products 
+                            <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        {% endif %}
                     </p>
                 </div>
             </div>

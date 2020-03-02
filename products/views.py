@@ -16,7 +16,8 @@ def list_of_products_by_category(request, category_slug):
 def list_of_products(request):
     products = Product.objects.all()
     template = 'list_of_products.html'
-    context = {'products': products}
+    context = {'products': products,
+               'page_title': 'All Products'}
     return render(request, template, context)
 
 def product_detail(request, slug):
