@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'search',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 # Categories for the Navbar
                 'products.context.category_list',
+                'cart.contexts.cart_contents',
             ],
         },
     },
