@@ -4,7 +4,7 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-/*--------------------------------------------------- Text + Links*/
+/*--------------------------------------------------- Text + Links + buttons*/
 .font-color {
     text-decoration: none;
     color: rgba(0,0,0,.9);
@@ -31,6 +31,34 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size: 2rem;
+}
+
+.cart-contents-font {
+    font-size: 60%;
+}
+
+.adjust-quantity-button {
+    color: #fff;
+    border-radius: 25%;
+    background-color: #28a745;
+    padding: 3px;
+}
+
+.adjust-quantity-button:hover {
+    font-size: 115%;
+}
+
+.delete-item-button {
+    color: red;
+}
+
+.delete-item-button:hover {
+    font-size: 120%;
+}
+/*--------------------------------------------------- forms*/
+.login-form, .sign-up-form {
+    border-radius: 1%;
+    background-color: #e9ecef;
 }
 
 /*--------------------------------------------------- Nav*/
@@ -119,16 +147,17 @@ body {
     list-style-type: circle;
 }
 
-/*--------------------------------------------------- forms*/
-.login-form, .sign-up-form {
-    border-radius: 1%;
-    background-color: #e9ecef;
-}
+/*--------------------------------------------------- Cart + Checkout*/
+
 
 /*--------------------------------------------------- Media Queries*/
 @media (min-width: 768px) {
     #logo {
         width: 10%;
+    }
+
+    .cart-contents-font {
+        font-size: 100%;
     }
 }
 @media (min-width: 1024px) {
