@@ -18,14 +18,16 @@ def cart_contents(request):
             product = get_object_or_404(Product, pk=id)
             quantity = quantity_and_size
             total += quantity * product.price
+            line_total = product.price * quantity
             product_count += quantity
-            cart_items.append({'id': id, 'quantity': quantity, 'product': product})
+            cart_items.append({'id': id, 'quantity': quantity, 'line_total': line_total, 'product': product})
         else:
             product = get_object_or_404(Product, pk=id)
             size = quantity_and_size[1]
             quantity = quantity_and_size[0]
             total += quantity * product.price
+            line_total = product.price * quantity
             product_count += quantity
-            cart_items.append({'id': id, 'quantity': quantity, 'size': size, 'product': product})
+            cart_items.append({'id': id, 'quantity': quantity, 'size': size, 'line_total': line_total, 'product': product})
     
     return {'cart_items': cart_items, 'total': total, 'product_count': product_count}
