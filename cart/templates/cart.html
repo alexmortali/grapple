@@ -2,6 +2,8 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+{% block title %}Cart{% endblock %}
+
 {% block content %}
 <div class="container">
     <h1 class="my-5 page-title">Your Items</h1>
@@ -42,7 +44,7 @@
                             <button type="submit" class="btn"><i class="fas fa-check adjust-quantity-button"></i></button>
                         </form>
                     </td>
-                    <td class="align-middle">£{{ product_total }}</td>
+                    <td class="align-middle">£{{ cart_item.product.price }}</td>
                     <td class="align-middle"><a href="{% url 'delete_from_cart' cart_item.id %}"><i class="fas fa-trash delete-item-button"></i></a></td>
                 </tr>
                 {% endfor %}
