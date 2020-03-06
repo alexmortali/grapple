@@ -3,17 +3,17 @@ from products.models import Product
 
 # Create your models here.
 class BillingAddress(models.Model):
-    full_name = models.CharField(max_length=50, blank=False)
+    Full_Name = models.CharField(max_length=50, blank=False)
     country = models.CharField(max_length=40, blank=False)
-    postcode = models.CharField(max_length=20, blank=True)
-    town_or_city = models.CharField(max_length=40, blank=False)
-    street_address1 = models.CharField(max_length=40, blank=False)
-    street_address2 = models.CharField(max_length=40, blank=False)
-    county = models.CharField(max_length=40, blank=False)
+    postcode = models.CharField(max_length=20, blank=False)
+    town_or_City = models.CharField(max_length=40, blank=False)
+    Address_Line_1 = models.CharField(max_length=40, blank=False)
+    Address_Line_2 = models.CharField(max_length=40, blank=True)
+    county = models.CharField(max_length=40, blank=True)
     date = models.DateField()
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
+        return "{0}-{1}-{2}".format(self.id, self.date, self.Full_Name)
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(BillingAddress, null=False)
