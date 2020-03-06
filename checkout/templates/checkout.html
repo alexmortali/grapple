@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-5 page-title">Checkout</h1>
+
+    <form action="{% url 'checkout:payment'%}" method="post">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button class="btn btn-success" type="submit">Continue</button>
+    </form>
+</div>
+{% endblock %}
