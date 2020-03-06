@@ -15,4 +15,4 @@ class MakePaymentForm(forms.Form):
 class BillingForm(forms.ModelForm):
     class Meta:
         model = BillingAddress
-        fields = ('full_name', 'street_address1', 'street_address2', 'town_or_city', 'county', 'country', 'postcode')
+        fields = ('Full_Name', 'Address_Line_1', 'Address_Line_2', 'town_or_City', 'county', 'country', 'postcode')
