@@ -55,10 +55,18 @@ body {
 .delete-item-button:hover {
     font-size: 120%;
 }
+
+.back-link:hover {
+    text-decoration: none;
+}
 /*--------------------------------------------------- forms*/
 .login-form, .sign-up-form {
     border-radius: 1%;
     background-color: #e9ecef;
+}
+
+.checkout-form {
+    border: 1px solid black;
 }
 
 /*--------------------------------------------------- Nav*/
@@ -148,6 +156,9 @@ body {
 }
 
 /*--------------------------------------------------- Cart + Checkout*/
+.order-container {
+    border: 1px solid black;
+}
 
 
 /*--------------------------------------------------- Media Queries*/
