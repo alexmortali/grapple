@@ -17,16 +17,17 @@ def checkout(request):
 
     context = {'form': form}
 
-    #if request.method == "POST":
-    #    if form.is_valid():
-    #        billing_address = form.save(commit=False)
-    #        billing_address.date = timezone.now()
-    #        billing_address.user = request.user
-    #        billing_address.save()
-    #        return redirect('checkout:payment')
+    if request.method == "POST":
+        if form.is_valid():
+            billing_address = form.save(commit=False)
+            billing_address.date = timezone.now()
+            billing_address.user = request.user
+            billing_address.save()
+            return redirect('checkout:payment')
 
     return render(request, 'checkout.html', context)
 
+@login_required()
 def payment(request):
 
     return render(request, 'payment.html')
