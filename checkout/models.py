@@ -1,8 +1,12 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from products.models import Product
 
+User = get_user_model()
+
 # Create your models here.
 class BillingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     Full_Name = models.CharField(max_length=50, blank=False)
     country = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=20, blank=False)
