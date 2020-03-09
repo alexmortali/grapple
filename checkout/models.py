@@ -17,7 +17,7 @@ class BillingAddress(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.Full_Name)
+        return "{0}-{1}-{2}-{3}-{4}".format(self.id, self.date, self.Full_Name, self.Address_Line_1, self.postcode)
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(BillingAddress, null=False)
