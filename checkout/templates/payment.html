@@ -18,27 +18,11 @@
 <div class="container">
     <div class="my-5">
         <h1 class="page-title">Payment</h1>
-        <a href="{% url 'checkout:checkout' %}" class="back-link"><p><i class="fas fa-arrow-circle-left mr-2"></i><i>Back to Checkout</i></p></a>
+        <a href="{% url 'checkout:review' %}" class="back-link"><p><i class="fas fa-arrow-circle-left mr-2"></i><i>Back to Review</i></p></a>
     </div>
 
     <div class="row">
-        <div class="col-12 col-md-6 mb-5">
-            <div class="card">
-                <div class="card-header font-weight-bold">Card Details</div>
-                <div class="card-body">
-                    <form action="{% url 'checkout:payment'%}" method="POST">
-                        <legend>Payment Details</legend>
-                        <div id="credit-card-errors" style="display:none">
-                            <div class="alert-message block-message error" id="stripe-error-message"></div>
-                        </div>
-                        {% csrf_token %}
-                        {{ payment_form | as_bootstrap }}
-                        <button class="btn btn-success" type="submit">Pay Now</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 mb-5">
+        <div class="col-12 mb-3">
             <div class="card">
                 <div class="card-header font-weight-bold">Order</div>
                 <div class="card-body">
@@ -54,6 +38,37 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row d-inline">
+        <form role="form" method="post" id="payment-form" action="{% url 'checkout:payment' %}">
+            <div id="credit-card-errors" style="display:none">
+                <div class="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
+
+            <div class="col-12 col-md-6 mt-4 float-left d-inline">
+                <div class="card">
+                    <div class="card-header font-weight-bold">Card Details</div>
+                    <div class="card-body">
+                        {{ payment_form|as_bootstrap }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 d-inline">
+                <div class="card mr-3">
+                    <div class="card-header font-weight-bold">Address Details</div>
+                    <div class="card-body">
+                        {{ billing_address_form|as_bootstrap }}
+                    </div>
+                </div>
+            </div>
+        
+            {% csrf_token %}
+            <div class="form-group col-12 text-center">
+                <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value="Pay Now">
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
