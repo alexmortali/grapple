@@ -12,14 +12,17 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
 
+
 @login_required()
 def checkout(request):
     """  """
-    form = BillingForm
+    form = BillingForm()
 
     context = {'form': form}
 
     if request.method == "POST":
+        form = BillingForm(request.POST)
+        
         if form.is_valid():
             billing_address = form.save(commit=False)
             billing_address.date = timezone.now()
@@ -29,13 +32,15 @@ def checkout(request):
 
     return render(request, 'checkout.html', context)
 
+
 @login_required()
 def payment(request):
     """  """
-    
+
     if request.method == "POST":
         payment_form = MakePaymentForm(request.POST)
         address_form = BillingAddress.objects.filter(user=request.user)
+
         if payment_form.is_valid():
             cart = request.session.get('cart', {})
             total = 0
@@ -44,21 +49,20 @@ def payment(request):
                 size = quantity_and_size[1]
                 quantity = quantity_and_size[0]
                 total += quantity * product.price
-                line_total = product.price * quantity
                 order_line_item = OrderLineItem(
                     order=address_form,
-                    product = product,
-                    quantity = quantity,
-                    size = size
+                    product=product,
+                    quantity=quantity,
+                    size=size
                 )
-            order_line_item.save()
+                order_line_item.save()
 
             try:
                 customer = stripe.Charge.create(
-                    amount = int(total * 100),
-                    currency = "GBP",
-                    description = request.user.email,
-                    card = payment_form.cleaned_data['stripe_id'],
+                    amount=int(total * 100),
+                    currency="GBP",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
@@ -71,8 +75,9 @@ def payment(request):
                 messages.error(request, "Unable to take payment")
         else:
             print(payment_form.errors)
-            messages.error(request, "We were unable to take payment with that card!")
+            messages.error(
+                request, "We were unable to take payment with that card!")
     else:
         payment_form = MakePaymentForm()
 
-    return render(request, "payment.html", {'address_form': address_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html", {'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
