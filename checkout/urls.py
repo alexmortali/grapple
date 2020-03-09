@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from .views import checkout, payment
+from .views import payment, review
 
 app_name = 'checkout'
 
 urlpatterns = [
-    url(r'^$', checkout, name='checkout'),
+    url(r'^$', review, name='review'),
     url(r'^payment/$', payment, name='payment'),
 ]
