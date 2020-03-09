@@ -14,23 +14,10 @@ stripe.api_key = settings.STRIPE_SECRET
 
 
 @login_required()
-def checkout(request):
+def review(request):
     """  """
-    form = BillingForm()
 
-    context = {'form': form}
-
-    if request.method == "POST":
-        form = BillingForm(request.POST)
-        
-        if form.is_valid():
-            billing_address = form.save(commit=False)
-            billing_address.date = timezone.now()
-            billing_address.user = request.user
-            billing_address.save()
-            return redirect('checkout:payment')
-
-    return render(request, 'checkout.html', context)
+    return render(request, 'review.html')
 
 
 @login_required()
@@ -38,19 +25,24 @@ def payment(request):
     """  """
 
     if request.method == "POST":
+        billing_address_form = BillingForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
-        address_form = BillingAddress.objects.filter(user=request.user)
 
-        if payment_form.is_valid():
+        if billing_address_form.is_valid() and payment_form.is_valid():
+            billing_address = billing_address_form.save(commit=False)
+            billing_address.date = timezone.now()
+            billing_address.user = request.user
+            billing_address.save()
+
             cart = request.session.get('cart', {})
             total = 0
-            for id, quantity_and_size in cart.items():
+            for id, quantity_or_size in cart.items():
                 product = get_object_or_404(Product, pk=id)
-                size = quantity_and_size[1]
-                quantity = quantity_and_size[0]
+                size = quantity_or_size[1]
+                quantity = quantity_or_size[0]
                 total += quantity * product.price
                 order_line_item = OrderLineItem(
-                    order=address_form,
+                    order=billing_address,
                     product=product,
                     quantity=quantity,
                     size=size
@@ -79,5 +71,6 @@ def payment(request):
                 request, "We were unable to take payment with that card!")
     else:
         payment_form = MakePaymentForm()
+        billing_address_form = BillingForm()
 
-    return render(request, "payment.html", {'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html", {'billing_address_form': billing_address_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
