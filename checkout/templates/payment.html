@@ -42,24 +42,24 @@
 
     <div class="row d-inline">
         <form role="form" method="post" id="payment-form" action="{% url 'checkout:payment' %}">
-            <div id="credit-card-errors" style="display:none">
+            <div id="credit-card-errors" style="display:block">
                 <div class="alert-message block-message error" id="stripe-error-message"></div>
             </div>
 
-            <div class="col-12 col-md-6 mt-4 float-left d-inline">
+            <div class="col-12 col-md-6 mt-4 d-inline pay-form">
                 <div class="card">
-                    <div class="card-header font-weight-bold">Card Details</div>
+                    <div class="card-header font-weight-bold">Address Details</div>
                     <div class="card-body">
-                        {{ payment_form|as_bootstrap }}
+                        {{ billing_address_form|as_bootstrap }}
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 d-inline">
-                <div class="card mr-3">
-                    <div class="card-header font-weight-bold">Address Details</div>
+                <div class="card">
+                    <div class="card-header font-weight-bold">Card Details</div>
                     <div class="card-body">
-                        {{ billing_address_form|as_bootstrap }}
+                        {{ payment_form|as_bootstrap }}                        
                     </div>
                 </div>
             </div>
