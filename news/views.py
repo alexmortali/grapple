@@ -9,7 +9,9 @@ def news_home(request):
     return render(request, template, context)
 
 def news_article(request, slug):
+    other_posts = Post.objects.all().order_by('-created')[:5]
     post = get_object_or_404(Post, slug=slug)
     template = 'news_article.html'
-    context = {'post': post}
+    context = {'post': post,
+               'other_posts': other_posts}
     return render(request, template, context)
