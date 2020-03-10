@@ -59,14 +59,11 @@ body {
 .back-link:hover {
     text-decoration: none;
 }
+
 /*--------------------------------------------------- forms*/
 .login-form, .sign-up-form {
     border-radius: 1%;
     background-color: #e9ecef;
-}
-
-.checkout-form {
-    border: 1px solid black;
 }
 
 /*--------------------------------------------------- Nav*/
@@ -104,6 +101,10 @@ body {
     height: 200px;
 }
 
+.category-title {
+    font-size: 120%;
+}
+
 .category-title, .product-info {
     position: absolute;
     bottom: 0px;
@@ -117,6 +118,11 @@ body {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+/*--------------------------------------------------- Information Section*/
+.info-icon {
+    color: #778899;
 }
 
 /*--------------------------------------------------- Product Listings*/
