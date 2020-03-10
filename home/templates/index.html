@@ -19,7 +19,7 @@
                     <a class="link font-color" href="{% url 'products:list_of_products_by_category' category.slug %}">
                         <div class="category-section">
                             <div class="cat-image" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
-                            <div class="category-title text-center">
+                            <div class="category-title text-center text-uppercase">
                                 {{ category.title|title }}
                             </div>
                         </div> 
@@ -29,5 +29,27 @@
         {% endfor %}
     </div>
     <!-- /Featured Categories -->
+
+    <!-- Information Section -->
+    <hr class="my-5">
+    <div class="row text-center">
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <i class="info-icon fas fa-fist-raised fa-8x mb-3"></i>
+            <h4 class="info-heading text-uppercase">Battle Tested</h4>
+            <p>We personally test all products, to ensure the highest quality.</p> 
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <i class="info-icon fab fa-stripe fa-8x mb-3"></i>
+            <h4 class="info-heading text-uppercase">Stripe Payments</h4>
+            <p>We use to stripe to handle payments, ensuring fast, secure transactions.</p>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <i class="info-icon fas fa-globe-europe fa-8x mb-3"></i>
+            <h4 class="info-heading text-uppercase">Global Shipping</h4>
+            <p>Free global shipping is including on all orders, next day delivery for UK.</p>
+        </div>
+    </div>
+    <hr class="my-5">
+    <!-- /Information Section -->
 </div>
 {% endblock %}
