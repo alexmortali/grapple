@@ -166,6 +166,24 @@ body {
     border: 1px solid black;
 }
 
+/*--------------------------------------------------- News*/
+.news-card-body {
+    padding: 0!important;
+}
+
+.news-home-image {
+    width: 100%;
+    height: 12rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.news-preview-text {
+    font-size: 80%;
+    letter-spacing: 1px;
+}
+
 
 /*--------------------------------------------------- Media Queries*/
 @media (min-width: 768px) {
