@@ -5,11 +5,17 @@
 {% block content %}
 <div class="container">
 
-    
+    <div class="row">
+        <div class="col-12 my-5 d-inline">
+            <a href="{% url 'index' %}" class="back-link d-inline"><i
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> <a href="{% url 'news:news_home' %}"
+                class="back-link d-inline"><i>/News</i></a>
+        </div>
+    </div>
 
-    <div class="row mt-5">
+    <div class="row">
         <div class="col-12 text-center">
-            <h1 class="page-title" >{{post.title}}</h1>
+            <h1 class="page-title">{{post.title}}</h1>
             <p class="news-preview-text text-capitalize"><i>{{ post.author }} - {{post.created.date}}</i></p>
         </div>
     </div>
@@ -31,7 +37,9 @@
                 <div class="card-body">
                     {% for other_post in other_posts %}
                     <div class="my-1">
-                        <a class="font-color link" href="{% url 'news:news_article' other_post.slug %}"><p><i class="news-icon fas fa-plus mr-1"></i> {{ other_post.title|title }}</p></a>
+                        <a class="font-color link" href="{% url 'news:news_article' other_post.slug %}">
+                            <p><i class="news-icon fas fa-plus mr-1"></i> {{ other_post.title|title }}</p>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
