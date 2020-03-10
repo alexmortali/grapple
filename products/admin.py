@@ -4,6 +4,7 @@ from .models import Category, Product
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
+    list_display = ['title', 'featured']
 
 admin.site.register(Category, CategoryAdmin)
 
