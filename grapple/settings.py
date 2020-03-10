@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'search',
     'cart',
     'checkout',
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,8 @@ TEMPLATES = [
                 'products.context.category_list',
                 # Cart contents
                 'cart.contexts.cart_contents',
+                # Featured News Posts
+                'news.context.featured_news_posts_list',
             ],
         },
     },
