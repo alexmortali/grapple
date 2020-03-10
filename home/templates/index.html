@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-3">
-                    <a href="/"><button class="btn btn-success">Read More <i class="fas fa-info-circle ml-1"></i></button></a>
+                    <a href="{% url 'news:news_article' post.slug %}"><button class="btn btn-success">Read More <i class="fas fa-info-circle ml-1"></i></button></a>
                 </div>
             </div>
         {% endfor %}
