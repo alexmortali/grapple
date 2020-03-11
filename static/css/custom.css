@@ -74,7 +74,7 @@ body {
     width: 20%;
 }
 
-/*--------------------------------------------------- Jumbotrons*/
+/*--------------------------------------------------- Jumbotrons + Images*/
 .jumbotron {
     min-height: 65vh;
 }
@@ -96,6 +96,18 @@ body {
 
 .home-jumbo {
     background-image: url("../jumbo-images/home-jumbo-img.jpg");
+}
+
+.info-jumbo {
+    height: 18rem;
+    background: rgb(227,230,230);
+    background: linear-gradient(90deg, rgba(227,230,230,1) 0%, rgba(151,148,148,0.5354516806722689) 50%, rgba(227,230,230,1) 100%);
+}
+
+.about-image {
+    background-image: url("../jumbo-images/about-image.jpg");
+    height: 30rem;
+    border-radius: 5px;
 }
 
 /*--------------------------------------------------- Featured Categories*/
