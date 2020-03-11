@@ -74,7 +74,7 @@ body {
     width: 20%;
 }
 
-/*--------------------------------------------------- Jumbotrons + Images*/
+/*--------------------------------------------------- Jumbotrons + Images + Map*/
 .jumbotron {
     min-height: 65vh;
 }
@@ -108,6 +108,10 @@ body {
     background-image: url("../jumbo-images/about-image.jpg");
     height: 30rem;
     border-radius: 5px;
+}
+
+.google-map {
+    width: 100%;
 }
 
 /*--------------------------------------------------- Featured Categories*/
@@ -217,6 +221,12 @@ body {
     line-height: 2rem;
     letter-spacing: 1px;
     text-align: justify;
+}
+
+/*--------------------------------------------------- Contact*/
+.contact-information {
+    background-color: rgba(0, 229, 238, 0.2);
+    border-radius: 5px;
 }
 /*--------------------------------------------------- Media Queries*/
 @media (min-width: 768px) {
