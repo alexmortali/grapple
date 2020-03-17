@@ -33,6 +33,7 @@ class Product(models.Model):
     summary = models.TextField(max_length=200, verbose_name="Summary")
     description = models.TextField(max_length=1000, verbose_name="Description")
     price = models.DecimalField(max_digits=6, decimal_places=2, default=9.99)
+    created = models.DateTimeField(auto_now_add=True)
 
     def get_absolute_url(self):
         return reverse('products:product_detail', args=[self.slug])
