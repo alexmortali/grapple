@@ -63,12 +63,22 @@ body {
     text-decoration: none;
 }
 
+.filter-button {
+    height: 100%;
+    padding: 4px;
+    font-size: 120%;
+}
 /*--------------------------------------------------- forms*/
 .login-form, .sign-up-form {
     border-radius: 1%;
     background-color: #e9ecef;
 }
 
+.filter-form {
+    width: 70%;
+    display: flex;
+    vertical-align: middle;
+}
 /*--------------------------------------------------- Nav*/
 #logo {
     width: 20%;
@@ -223,11 +233,6 @@ body {
     text-align: justify;
 }
 
-/*--------------------------------------------------- Contact*/
-.contact-information {
-    background-color: rgba(0, 229, 238, 0.2);
-    border-radius: 5px;
-}
 /*--------------------------------------------------- Media Queries*/
 @media (min-width: 768px) {
     #logo {
