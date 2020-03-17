@@ -8,11 +8,13 @@ SIZE_CHOICES = (
     ('Extra Large', 'XL')
 )
 
+
 class QuantityForm(forms.Form):
     """ Form for user to select quantity """
 
     quantity = forms.IntegerField(min_value=1, max_value=10, widget=forms.Select(
         choices=[(i, i) for i in range(1, 11)]))
+
 
 class SizeForm(forms.Form):
     """ Form for user to select size """
