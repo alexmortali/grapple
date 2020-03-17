@@ -7,11 +7,28 @@
 {% block content %}
 <div class="jumbotron jumbotron-fluid products-jumbo jumbo-background"></div>
 <div class="container">
-    {% if search_request %}
-        <h1 class="mt-4 page-title">{{ page_title }} - <i>{{  search_request}}</i></h1>
-    {% else %}
-        <h1 class="mt-4 page-title">{{ page_title }}</h1>
-    {% endif %}
+    <div class="row my-5">
+        <div class="col-12 col-sm-6">
+        {% if search_request %}
+            <h1 class="page-title">{{ page_title }} - <i>{{  search_request}}</i></h1>
+        {% else %}
+            <h1 class="page-title">{{ page_title }}</h1>
+        {% endif %}
+        </div>
+        <div class="col-12 col-sm-6 float-right">
+            <form action="{% url 'products:list_of_products' %}" method="post" class="filter-form float-right">
+                {% csrf_token %}
+                <div class="input-group">
+                    <select name="filter_select" class="selectpicker form-control">
+                        {% for choice, value in order_by_choices %}
+                            <option value="{{ choice }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button class="btn btn-success filter-button ml-2" type="submit"><i class="fas fa-check-circle"></i></button>
+            </form>
+        </div>
+    </div>
     <div class="row justify-content-center">
         {% if products %}
             {% for product in products %}
