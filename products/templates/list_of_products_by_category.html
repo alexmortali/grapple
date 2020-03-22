@@ -53,5 +53,8 @@
             </div>
         {% endif %}        
     </div>
+    <div class="my-5">
+        {% include 'paginator.html' with page=products %}
+    </div>
 </div>
 {% endblock %}
