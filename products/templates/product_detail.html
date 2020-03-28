@@ -6,7 +6,18 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="page-title mt-5 mb-3">{{ product.name|title }}</h1>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="page-title mt-5">{{ product.name|title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-inline">
+            <a href="{% url 'index' %}" class="back-link d-inline"><i
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a href="{% url 'products:list_of_products_by_category' product.category.slug %}"
+                class="back-link d-inline"><i>{{ product.category|title }}</i></a>
+        </div>
+    </div>
     <div class="row mt-5">
         <div class="col-12 col-md-8 mb-4">
             <div class="product-detail-image" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>

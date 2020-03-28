@@ -5,11 +5,11 @@
 {% block content %}
 <div class="jumbotron jumbotron-fluid products-jumbo jumbo-background"></div>
 <div class="container font-color">
-    <div class="row my-5">
+    <div class="row mt-5">
         <div class="col-12 col-sm-6">
             <h1 class="page-title">{{ category.title }}</h1>
         </div>
-        <div class="col-12 col-sm-6 float-right">
+        <div class="col-12 col-sm-6 float-right mb-2">
             <form action="{% url 'products:list_of_products_by_category' category.slug %}" method="post" class="filter-form float-right">
                 {% csrf_token %}
                 <div class="input-group">
@@ -21,6 +21,13 @@
                 </div>
                 <button class="btn btn-success filter-button ml-2" type="submit"><i class="fas fa-check-circle"></i></button>
             </form>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-12 d-inline">
+            <a href="{% url 'index' %}" class="back-link d-inline"><i
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a href="{% url 'products:list_of_products' %}"
+                class="back-link d-inline"><i>All Products</i></a>
         </div>
     </div>
     <div class="row justify-content-center">
