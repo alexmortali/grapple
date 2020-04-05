@@ -3,6 +3,7 @@ from django.shortcuts import reverse
 
 # Create your models here.
 
+
 class Category(models.Model):
     """ Model for Categories. Products can be placed in different 
     categories and featured to show on home page """
@@ -16,16 +17,17 @@ class Category(models.Model):
         ordering = ['title']
         verbose_name = 'category'
         verbose_name_plural = 'categories'
-    
+
     def get_absolute_url(self):
         return reverse('products:list_of_products_by_category', args=[self.slug])
 
     def __str__(self):
         return self.title
 
+
 class Product(models.Model):
     """ Model for Products """
-    
+
     name = models.CharField(max_length=150, default='Product')
     slug = models.SlugField(max_length=150, unique=True)
     category = models.ForeignKey(Category)
