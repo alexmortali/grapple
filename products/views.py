@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Max
 from .forms import QuantityForm, SizeForm
 from .models import Category, Product
+from reviews.models import Review
 # Create your views here.
 
 ORDER_BY_CHOICES = (
@@ -113,8 +114,10 @@ def product_detail(request, slug):
     """ View that return a single products page """
 
     product = get_object_or_404(Product, slug=slug)
+    reviews = Review.objects.filter(product=product).order_by('review_date')
     template = 'product_detail.html'
     context = {'product': product,
                'Quantity': QuantityForm,
-               'Size': SizeForm}
+               'Size': SizeForm,
+               'reviews': reviews}
     return render(request, template, context)
