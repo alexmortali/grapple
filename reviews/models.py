@@ -13,7 +13,7 @@ class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=150, default="Review Title")
     review = models.TextField(max_length=750)
-    rating = models.FloatField(validators=[MinValueValidator(1), MaxValueValidator(10)])
+    rating = models.FloatField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     review_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
