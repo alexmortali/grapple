@@ -14,7 +14,8 @@
     <div class="row">
         <div class="col-12 d-inline">
             <a href="{% url 'index' %}" class="back-link d-inline"><i
-                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a href="{% url 'products:list_of_products_by_category' product.category.slug %}"
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a
+                href="{% url 'products:list_of_products_by_category' product.category.slug %}"
                 class="back-link d-inline"><i>{{ product.category|title }}</i></a>
         </div>
     </div>
@@ -39,7 +40,7 @@
                 <p>{{ product.description }}</p>
                 <hr class="my-4">
                 <h3 class="page-title">Shipping</h3>
-                <p>With all of our products we offer free global shipping! Depending on where you are 
+                <p>With all of our products we offer free global shipping! Depending on where you are
                     are ordering from shipping times can vary..</p>
                 <ul class="description-list">
                     <li>Uk and Ireland: 3-5 days</li>
@@ -52,7 +53,7 @@
                 <hr class="my-4">
                 <h3 class="page-title">Returns</h3>
                 <p class="information-text">We accept all returns within 30days of purchase date no matter the reason.
-                    Please used the pre printed label you will find with your order to return your 
+                    Please used the pre printed label you will find with your order to return your
                     item to us. Return address found <a href="/contact/"><i>here</i></a>
                 </p>
                 <hr class="my-4">
@@ -62,12 +63,17 @@
     <div class="row">
         <div class="col-12 col-md-8">
             <h3 class="page-title">Reviews</h3>
-            <p>stars - number of reviews</p>
+            <p>{{ rating_list }}/5 - {{ total_reviews }} reviews</p>
+        </div>
+        <div class="col-12 col-md-8">
+            <p class="d-inline">Leave a review</p>
+            <button type="button" class="btn d-inline" data-toggle="modal" data-target="#AddReviewModal"><i
+                    class="fas fa-plus"></i></button>
         </div>
     </div>
     <div class="row">
         {% for review in reviews %}
-        <div class="card col-12 col-md-4 col-lg-3 my-2 mx-2">
+        <div class="col-xs-12 col-md-5 col-lg-3 my-2 mx-2 card ">
             <div class="card-body">
                 <h5>{{ review.rating }} {{ review.title }}</h5>
                 <p>{{ review.user }} - {{ review.review_date }}</p>
@@ -75,6 +81,28 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="AddReviewModal" tabindex="-1" role="dialog" aria-labelledby="AddReviewLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="AddReviewLabel">Add a Review</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> Review form </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Add Review</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -109,15 +109,27 @@ def list_of_products(request):
                    }
         return render(request, template, context)
 
+def Average(list):
+    return sum(list) / len(list)
 
 def product_detail(request, slug):
     """ View that return a single products page """
 
     product = get_object_or_404(Product, slug=slug)
     reviews = Review.objects.filter(product=product).order_by('review_date')
+    rating_function_list = []
+
+    for review in reviews:
+        rating_function_list.append(review.rating)
+
+    rating_list = Average(rating_function_list)
+
+    total_reviews = Review.objects.filter(product=product).count()
     template = 'product_detail.html'
     context = {'product': product,
                'Quantity': QuantityForm,
                'Size': SizeForm,
-               'reviews': reviews}
+               'reviews': reviews,
+               'total_reviews': total_reviews,
+               'rating_list': rating_list}
     return render(request, template, context)
