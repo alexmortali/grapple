@@ -68,6 +68,10 @@ body {
     padding: 4px;
     font-size: 120%;
 }
+
+.add-review-button{
+    color: #28a745;
+}
 /*--------------------------------------------------- forms*/
 .login-form, .sign-up-form {
     border-radius: 1%;
@@ -231,6 +235,16 @@ body {
     line-height: 2rem;
     letter-spacing: 1px;
     text-align: justify;
+}
+
+/*--------------------------------------------------- Reviews*/
+.average-number {
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.red {
+    color: #f70027;
 }
 
 /*--------------------------------------------------- Media Queries*/
