@@ -29,7 +29,7 @@ def list_of_products_by_category(request, category_slug):
             products = products.filter(category=category)
             paginator = Paginator(products, 1)
             page = request.GET.get('page')
-            try: 
+            try:
                 products = paginator.page(page)
             except PageNotAnInteger:
                 products = paginator.page(1)
@@ -51,7 +51,7 @@ def list_of_products_by_category(request, category_slug):
             products = products.filter(category=category).order_by(selected)
             paginator = Paginator(products, 1)
             page = request.GET.get('page')
-            try: 
+            try:
                 products = paginator.page(page)
             except PageNotAnInteger:
                 products = paginator.page(1)
@@ -77,7 +77,7 @@ def list_of_products(request):
         products = Product.objects.all()
         paginator = Paginator(products, 2)
         page = request.GET.get('page')
-        try: 
+        try:
             products = paginator.page(page)
         except PageNotAnInteger:
             products = paginator.page(1)
@@ -95,7 +95,7 @@ def list_of_products(request):
         products = Product.objects.all().order_by(selected)
         paginator = Paginator(products, 2)
         page = request.GET.get('page')
-        try: 
+        try:
             products = paginator.page(page)
         except PageNotAnInteger:
             products = paginator.page(1)
@@ -109,8 +109,10 @@ def list_of_products(request):
                    }
         return render(request, template, context)
 
+
 def Average(list):
     return sum(list) / len(list)
+
 
 def product_detail(request, slug):
     """ View that return a single products page """
