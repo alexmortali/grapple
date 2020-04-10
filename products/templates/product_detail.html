@@ -63,46 +63,23 @@
     <div class="row">
         <div class="col-12 col-md-8">
             <h3 class="page-title">Reviews</h3>
-            <p>{{ rating_list }}/5 - {{ total_reviews }} reviews</p>
+            <p><span class="average-number red">{{ rating_list }}/5 </span>- {{ total_reviews }} reviews</p>
         </div>
         <div class="col-12 col-md-8">
             <p class="d-inline">Leave a review</p>
-            <button type="button" class="btn d-inline" data-toggle="modal" data-target="#AddReviewModal"><i
-                    class="fas fa-plus"></i></button>
+            <a href="{% url 'reviews:add_review' %}" class="ml-2"><i class="fas fa-plus add-review-button"></i></a>
         </div>
     </div>
     <div class="row">
         {% for review in reviews %}
         <div class="col-xs-12 col-md-5 col-lg-3 my-2 mx-2 card ">
             <div class="card-body">
-                <h5>{{ review.rating }} {{ review.title }}</h5>
-                <p>{{ review.user }} - {{ review.review_date }}</p>
+                <h5><span class="red">{{ review.rating }}</span> {{ review.title }}</h5>
+                <p>{{ review.user }} - {{ review.review_date|date:"M d, Y" }}</p>
                 <p>{{ review.review|truncatechars:100 }}</p>
             </div>
         </div>
         {% endfor %}
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="AddReviewModal" tabindex="-1" role="dialog" aria-labelledby="AddReviewLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="AddReviewLabel">Add a Review</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p> Review form </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Add Review</button>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock %}
