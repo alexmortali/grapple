@@ -11,8 +11,8 @@ class Review(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    title = models.CharField(max_length=150, default="Review Title")
-    review = models.TextField(max_length=750)
+    title = models.CharField(max_length=35, default="Review Title")
+    review = models.TextField(max_length=600)
     rating = models.FloatField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     review_date = models.DateTimeField(auto_now_add=True)
 
