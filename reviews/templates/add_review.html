@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block title %}Add Review{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12 d-inline">
+            <a href="{% url 'index' %}" class="back-link d-inline"><i
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a
+                href="{% url 'products:list_of_products' %}"
+                class="back-link d-inline"><i>All products</i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto">
+            <form action="#" method="POST" class="add-review-form px-5 py-5 mt-4">
+                {% csrf_token %}
+                {{ review_form | as_bootstrap }}
+                <button class="btn btn-success" type="submit">Add Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
