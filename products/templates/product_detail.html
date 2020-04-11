@@ -63,7 +63,11 @@
     <div class="row">
         <div class="col-12 col-md-8">
             <h3 class="page-title">Reviews</h3>
-            <p><span class="average-number red">{{ rating_list }}/5 </span>- {{ total_reviews }} reviews</p>
+            {% if reviews %}
+                <p><span class="average-number red">{{ average_rating }}/5 </span>- {{ total_reviews }} reviews</p>
+            {% else %}
+                <p class='red'>{{ total_reviews }} reviews</p>
+            {% endif %}
         </div>
         <div class="col-12 col-md-8">
             <p class="d-inline">Leave a review</p>
@@ -76,7 +80,7 @@
             <div class="card-body">
                 <h5><span class="red">{{ review.rating }}</span> {{ review.title }}</h5>
                 <p>{{ review.user }} - {{ review.review_date|date:"M d, Y" }}</p>
-                <p>{{ review.review|truncatechars:100 }}</p>
+                <p>{{ review.review }}</p>
             </div>
         </div>
         {% endfor %}
