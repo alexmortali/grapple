@@ -28,9 +28,10 @@ def add_review(request):
             review.user = request.user
             review.rating = float(review.rating)
             review.save()
+            product_slug = review.product.slug
         
-            messages.success(request, "Review Added")
-            #return redirect(reverse('products:list_of_products'))
+            messages.success(request, " Your review  has been added! Check it out below")
+            return redirect(reverse('products:product_detail', args=[product_slug]))
         else:
             messages.error(request, user_review_form.errors)
     return render(request, template, context)
