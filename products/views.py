@@ -119,19 +119,24 @@ def product_detail(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
     reviews = Review.objects.filter(product=product).order_by('review_date')
+    total_reviews = Review.objects.filter(product=product).count()
     rating_function_list = []
 
-    for review in reviews:
-        rating_function_list.append(review.rating)
-
-    rating_list = Average(rating_function_list)
-
-    total_reviews = Review.objects.filter(product=product).count()
-    template = 'product_detail.html'
     context = {'product': product,
                'Quantity': QuantityForm,
                'Size': SizeForm,
                'reviews': reviews,
-               'total_reviews': total_reviews,
-               'rating_list': rating_list}
+               'total_reviews': total_reviews}
+    
+    if reviews:
+        for review in reviews:
+            rating_function_list.append(review.rating)
+
+    if rating_function_list:
+        average_rating = round(Average(rating_function_list), 1)
+        context['average_rating'] = average_rating
+
+    
+    template = 'product_detail.html'
+    
     return render(request, template, context)
