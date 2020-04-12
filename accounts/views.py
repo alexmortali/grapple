@@ -15,7 +15,7 @@ def logout(request):
 
 
 def login(request):
-    """Return a login page"""
+    """Return the login page"""
 
     if request.user.is_authenticated:
         return redirect(reverse('index'))
@@ -40,6 +40,7 @@ def login(request):
 
 def registration(request):
     """Render the registration page"""
+
     if request.user.is_authenticated:
         return redirect(reverse('index'))
 
@@ -55,6 +56,7 @@ def registration(request):
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('index'))
+                # Log User in and Return to Home page
             else:
                 messages.error(
                     request, "Unable to register your account at this time")

@@ -31,6 +31,7 @@ def list_of_products_by_category(request, category_slug):
         context['products'] = products
 
         return render(request, template, context)
+    # If user has selected a filter option
     elif request.method == "POST":
         # Get Users filter option
         selected_filter = request.POST.get('filter_select')
@@ -64,6 +65,7 @@ def list_of_products(request):
         context['products'] = products
 
         return render(request, template, context)
+    # If user has selected a filter option
     elif request.method == "POST":
         # Get Users filter option
         selected_filter = request.POST.get('filter_select')
@@ -81,9 +83,14 @@ def product_detail(request, slug):
     """ View that return a single products page """
 
     product = get_object_or_404(Product, slug=slug)
+    # Get products reviews ordered by latest review
     reviews = Review.objects.filter(product=product).order_by('review_date')
+    # Get total reviews for that product
     total_reviews = Review.objects.filter(product=product).count()
+
+    # List to be passes into Average function
     rating_function_list = []
+
     template = 'product_detail.html'
     context = {'product': product,
                'Quantity': QuantityForm,
@@ -92,9 +99,12 @@ def product_detail(request, slug):
                'total_reviews': total_reviews}
     if reviews:
         for review in reviews:
+            # Append each review rating to rating function list.
             rating_function_list.append(review.rating)
 
     if rating_function_list:
+        # If the list has data run Average function on it to get
+        # average rating.
         average_rating = Average(rating_function_list)
         context['average_rating'] = average_rating
 

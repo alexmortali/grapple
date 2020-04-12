@@ -18,8 +18,11 @@ def add_review(request):
     context = {'review_form': review_form}
 
     if request.method == "GET":
+        # If method is GET just render the review form.
         return render(request, template, context)
     elif request.method == "POST":
+        # If method is POst get the review form data, save it
+        # Send them back to product page
         user_review_form = ReviewForm(request.POST)
 
         if user_review_form.is_valid():
@@ -29,8 +32,9 @@ def add_review(request):
             review.rating = float(review.rating)
             review.save()
             product_slug = review.product.slug
-        
-            messages.success(request, " Your review  has been added! Check it out below")
+
+            messages.success(
+                request, " Your review  has been added! Check it out below")
             return redirect(reverse('products:product_detail', args=[product_slug]))
         else:
             messages.error(request, user_review_form.errors)

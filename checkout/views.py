@@ -16,14 +16,15 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def review(request):
-    """  """
+    """ View that renders simple review page """
 
     return render(request, 'review.html')
 
 
 @login_required()
 def payment(request):
-    """  """
+    """ View that renders payment page where users can fill
+        in 2 forms to complete their order. """
 
     if request.method == "POST":
         billing_address_form = BillingForm(request.POST)
@@ -62,7 +63,8 @@ def payment(request):
                     messages.error(request, "Your card was declined!")
 
                 if customer.paid:
-                    messages.success(request, "You have successfully paid! Why not check out some more products below.")
+                    messages.success(
+                        request, "You have successfully paid! Why not check out some more products below.")
                     request.session['cart'] = {}
                     return redirect(reverse('products:list_of_products'))
                 else:
