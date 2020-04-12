@@ -12,5 +12,5 @@ class QuantityForm(forms.Form):
 class SizeForm(forms.Form):
     """ Form for user to select size """
 
-    size = forms.CharField(max_length=100, required=True, widget=forms.Select(
+    size = forms.CharField(required=True, widget=forms.Select(
         choices=SIZE_CHOICES))
