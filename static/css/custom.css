@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700');
-
 body {
     font-family: "Roboto", sans-serif;
 }
@@ -9,14 +8,15 @@ body {
 }
 
 /*--------------------------------------------------- Text + Links + buttons*/
+
 .font-color {
     text-decoration: none;
-    color: rgba(0,0,0,.9);
+    color: rgba(0, 0, 0, .9);
 }
 
 .font-color:hover {
     text-decoration: none;
-    color: rgba(0,0,0,.9);
+    color: rgba(0, 0, 0, .9);
 }
 
 .product-section:hover {
@@ -26,7 +26,7 @@ body {
 .link {
     font-size: 100%;
     transition-property: font-size;
-    transition-duration: .1s;
+    transition-duration: .05s;
     transition-timing-function: linear;
 }
 
@@ -73,10 +73,12 @@ body {
     font-size: 120%;
 }
 
-.add-review-button{
+.add-review-button {
     color: #28a745;
 }
+
 /*--------------------------------------------------- forms*/
+
 .login-form, .sign-up-form {
     border-radius: 1%;
     background-color: #e9ecef;
@@ -93,17 +95,20 @@ body {
     border-radius: 5px;
     background-color: #f8f9fa;
 }
+
 /*--------------------------------------------------- Nav*/
+
 #logo {
     width: 20%;
 }
 
 /*--------------------------------------------------- Jumbotrons + Images + Map*/
+
 .jumbotron {
     min-height: 65vh;
 }
 
-.jumbo-background{
+.jumbo-background {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,8 +129,8 @@ body {
 
 .info-jumbo {
     height: 18rem;
-    background: rgb(227,230,230);
-    background: linear-gradient(90deg, rgba(227,230,230,1) 0%, rgba(151,148,148,0.5354516806722689) 50%, rgba(227,230,230,1) 100%);
+    background: rgb(227, 230, 230);
+    background: linear-gradient(90deg, rgba(227, 230, 230, 1) 0%, rgba(151, 148, 148, 0.5354516806722689) 50%, rgba(227, 230, 230, 1) 100%);
 }
 
 .about-image {
@@ -144,6 +149,7 @@ body {
 }
 
 /*--------------------------------------------------- Featured Categories*/
+
 .category-section {
     position: relative;
     height: 200px;
@@ -163,17 +169,16 @@ body {
     width: 60%;
     margin-left: 20%;
     height: 90%;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 /*--------------------------------------------------- Information Section*/
+
 .info-icon {
     color: #778899;
 }
 
 /*--------------------------------------------------- Product Listings*/
+
 .product-section {
     position: relative;
     height: 270px;
@@ -183,9 +188,6 @@ body {
     width: 60%;
     margin-left: 20%;
     height: 70%;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .no-products-text i:hover {
@@ -193,16 +195,14 @@ body {
 }
 
 /*--------------------------------------------------- Product Detail*/
+
 .product-detail-image {
     width: 100%;
     height: 300px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .add-to-cart-section {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .description-list {
@@ -210,11 +210,13 @@ body {
 }
 
 /*--------------------------------------------------- Cart + Checkout*/
+
 .order-container {
     border: 1px solid black;
 }
 
 /*--------------------------------------------------- News*/
+
 .news-card-body {
     padding: 0!important;
 }
@@ -222,9 +224,6 @@ body {
 .news-home-image {
     width: 100%;
     height: 12rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .news-preview-text {
@@ -235,9 +234,6 @@ body {
 .post-image {
     width: 100%;
     height: 22rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     border-radius: 5px;
 }
 
@@ -253,6 +249,7 @@ body {
 }
 
 /*--------------------------------------------------- Reviews*/
+
 .average-number {
     font-size: 120%;
     font-weight: 500;
@@ -263,33 +260,30 @@ body {
 }
 
 /*--------------------------------------------------- Media Queries*/
+
 @media (min-width: 768px) {
     #logo {
         width: 10%;
     }
-
     .cart-contents-font {
         font-size: 100%;
     }
 }
+
 @media (min-width: 1024px) {
     #logo {
         width: 6%;
     }
-
     .category-section {
         height: 250px;
     }
-
     .product-section {
         height: 300px;
     }
-
     .post-image {
         width: 70%;
         height: 25rem;
     }
-
     .message-box {
         width: 50%;
     }
