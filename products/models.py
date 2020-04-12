@@ -5,7 +5,7 @@ from django.shortcuts import reverse
 
 
 class Category(models.Model):
-    """ Model for Categories. Products can be placed in different 
+    """ Model for Categories. Products can be placed in different
     categories and featured to show on home page """
 
     title = models.CharField(max_length=150)
@@ -19,7 +19,9 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     def get_absolute_url(self):
-        return reverse('products:list_of_products_by_category', args=[self.slug])
+        return reverse('products:list_of_products_by_category',
+                       args=[self.slug]
+                       )
 
     def __str__(self):
         return self.title

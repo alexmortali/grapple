@@ -7,3 +7,11 @@ ORDER_BY_CHOICES = (
 )
 
 products_per_page = 12
+
+SIZE_CHOICES = (
+    ("Extra Small", "XS"),
+    ('Small', 'S'),
+    ('Medium', 'M'),
+    ('Large', 'L'),
+    ('Extra Large', 'XL')
+)

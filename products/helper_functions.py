@@ -2,6 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def paginator_function(request, paginator):
+    """ Paginator function returning correct products """
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
@@ -15,4 +16,6 @@ def paginator_function(request, paginator):
 
 
 def Average(list):
+    """ Helper function to return an average a list """
+
     return round(sum(list) / len(list), 1)

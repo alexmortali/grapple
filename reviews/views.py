@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
+
 # Create your views here.
 @login_required()
 def add_review(request):
@@ -35,7 +36,8 @@ def add_review(request):
 
             messages.success(
                 request, " Your review  has been added! Check it out below")
-            return redirect(reverse('products:product_detail', args=[product_slug]))
+            return redirect(reverse('products:product_detail',
+                                    args=[product_slug]))
         else:
             messages.error(request, user_review_form.errors)
     return render(request, template, context)

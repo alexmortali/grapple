@@ -5,9 +5,11 @@ from django.shortcuts import reverse
 User = get_user_model()
 
 # Create your models here.
+
+
 class Post(models.Model):
     """ Model for news posts """
-    
+
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=150, default='News Post')
     sub_title = models.CharField(max_length=100)

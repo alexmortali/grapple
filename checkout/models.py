@@ -5,6 +5,8 @@ from products.models import Product
 User = get_user_model()
 
 # Create your models here.
+
+
 class BillingAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     Full_Name = models.CharField(max_length=50, blank=False)
@@ -17,7 +19,13 @@ class BillingAddress(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return "{0}-{1}-{2}-{3}-{4}".format(self.id, self.date, self.Full_Name, self.Address_Line_1, self.postcode)
+        return "{0}-{1}-{2}-{3}-{4}".format(self.id,
+                                            self.date,
+                                            self.Full_Name,
+                                            self.Address_Line_1,
+                                            self.postcode
+                                            )
+
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(BillingAddress, null=False)
@@ -26,4 +34,7 @@ class OrderLineItem(models.Model):
     size = models.CharField(max_length=50, blank=False)
 
     def __str__(self):
-        return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
+        return "{0} {1} @ {2}".format(self.quantity,
+                                      self.product.name,
+                                      self.product.price
+                                      )

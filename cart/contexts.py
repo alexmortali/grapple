@@ -12,7 +12,7 @@ def cart_contents(request):
     cart_items = []
     total = 0
     product_count = 0
-    
+
     for id, quantity_and_size in cart.items():
         if isinstance(quantity_and_size, int):
             product = get_object_or_404(Product, pk=id)
@@ -20,7 +20,8 @@ def cart_contents(request):
             total += quantity * product.price
             line_total = product.price * quantity
             product_count += quantity
-            cart_items.append({'id': id, 'quantity': quantity, 'line_total': line_total, 'product': product})
+            cart_items.append({'id': id, 'quantity': quantity,
+                               'line_total': line_total, 'product': product})
         else:
             product = get_object_or_404(Product, pk=id)
             size = quantity_and_size[1]
@@ -28,6 +29,10 @@ def cart_contents(request):
             total += quantity * product.price
             line_total = product.price * quantity
             product_count += quantity
-            cart_items.append({'id': id, 'quantity': quantity, 'size': size, 'line_total': line_total, 'product': product})
-    
-    return {'cart_items': cart_items, 'total': total, 'product_count': product_count}
+            cart_items.append({'id': id, 'quantity': quantity, 'size': size,
+                               'line_total': line_total, 'product': product})
+
+    return {'cart_items': cart_items,
+            'total': total,
+            'product_count': product_count
+            }

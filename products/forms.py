@@ -1,12 +1,5 @@
 from django import forms
-
-SIZE_CHOICES = (
-    ("Extra Small", "XS"),
-    ('Small', 'S'),
-    ('Medium', 'M'),
-    ('Large', 'L'),
-    ('Extra Large', 'XL')
-)
+from products.constants import SIZE_CHOICES
 
 
 class QuantityForm(forms.Form):

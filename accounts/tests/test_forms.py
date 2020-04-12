@@ -63,4 +63,5 @@ class TestForms(TestCase):
                                      "password2": "testpassword"})
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors["username"], [u"A user with that username already exists."])
+            form.errors["username"],
+            [u"A user with that username already exists."])

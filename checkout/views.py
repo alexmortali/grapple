@@ -64,7 +64,10 @@ def payment(request):
 
                 if customer.paid:
                     messages.success(
-                        request, "You have successfully paid! Why not check out some more products below.")
+                        request,
+                        "You have successfully paid! "
+                        "Why not check out some more products below."
+                    )
                     request.session['cart'] = {}
                     return redirect(reverse('products:list_of_products'))
                 else:
@@ -77,4 +80,8 @@ def payment(request):
         payment_form = MakePaymentForm()
         billing_address_form = BillingForm()
 
-    return render(request, "payment.html", {'billing_address_form': billing_address_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html", {
+        'billing_address_form': billing_address_form,
+        'payment_form': payment_form,
+        'publishable': settings.STRIPE_PUBLISHABLE
+    })
