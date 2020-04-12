@@ -6,47 +6,54 @@
 <div class="jumbotron jumbotron-fluid products-jumbo jumbo-background"></div>
 <div class="container font-color">
     <div class="row mt-5">
+        <!-- Category Title -->
         <div class="col-12 col-sm-6">
             <h1 class="page-title">{{ category.title }}</h1>
         </div>
+        <!-- Filter Option -->
         <div class="col-12 col-sm-6 float-right mb-2">
-            <form action="{% url 'products:list_of_products_by_category' category.slug %}" method="post" class="filter-form float-right">
+            <form action="{% url 'products:list_of_products_by_category' category.slug %}" method="post"
+                class="filter-form float-right">
                 {% csrf_token %}
                 <div class="input-group">
                     <select name="filter_select" class="selectpicker form-control">
                         {% for choice, value in order_by_choices %}
-                            <option value="{{ choice }}">{{ value }}</option>
+                        <option value="{{ choice }}">{{ value }}</option>
                         {% endfor %}
                     </select>
                 </div>
-                <button class="btn btn-success filter-button ml-2" type="submit"><i class="fas fa-check-circle"></i></button>
+                <button class="btn btn-success filter-button ml-2" type="submit"><i
+                        class="fas fa-check-circle"></i></button>
             </form>
         </div>
     </div>
+    <!-- Back Link -->
     <div class="row mb-5">
         <div class="col-12 d-inline">
             <a href="{% url 'index' %}" class="back-link d-inline"><i
-                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a href="{% url 'products:list_of_products' %}"
-                class="back-link d-inline"><i>All Products</i></a>
+                    class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a
+                href="{% url 'products:list_of_products' %}" class="back-link d-inline"><i>All Products</i></a>
         </div>
     </div>
     <div class="row justify-content-center">
+        <!-- Product Listings -->
         {% if products %}
-            {% include 'product_listings.html' %}
+        {% include 'product_listings.html' %}
         {% else %}
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 col-offset-2">
-                        <p class="no-products-text text-center mt-3">
-                            We currently have no {{ category.title }} available.. 
-                            Why not check out all of our available products 
-                            <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
-                        </p>
-                    </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-8 col-offset-2">
+                    <p class="no-products-text text-center mt-3">
+                        We currently have no {{ category.title }} available..
+                        Why not check out all of our available products
+                        <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                    </p>
                 </div>
             </div>
-        {% endif %}        
+        </div>
+        {% endif %}
     </div>
+    <!-- Paginator -->
     <div class="my-5">
         {% include 'paginator.html' with page=products %}
     </div>

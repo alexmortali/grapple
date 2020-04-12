@@ -8,7 +8,9 @@
 <div class="container">
     <h1 class="my-5 page-title">Your Items</h1>
     <div class="cart-contents-font text-center">
+        <!-- Cart Table -->
         <table class="table table-hover">
+            <!-- Top Row -->
             <thead class="thead-dark">
                 <tr>
                     <th scope="col" class="d-none d-sm-table-cell"></th>
@@ -19,17 +21,22 @@
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
+            <!-- /Top Row -->
             <tbody>
                 {% for cart_item in cart_items %}
                 <tr>
+                    <!-- Item Counter -->
                     <th scope="row" class="d-none d-sm-table-cell align-middle">{{ forloop.counter }}</th>
+                    <!-- Item Image -->
                     <td scope="row" class="w-25 align-middle d-none d-sm-table-cell">
                         <div class=" mx-auto">
                             <img class="img-fluid" src="{{ cart_item.product.image.url }}"
                                 alt="Stock image for {{ cart_item.product.name }}">
                         </div>
                     </td>
+                    <!-- Item Name -->
                     <td class="align-middle">{{ cart_item.product.name }}<br>--<br>{{ cart_item.size }}</td>
+                    <!-- Item Quantity-->
                     <td class="align-middle">
                         <form class="" method="post" action="{% url 'adjust_cart' cart_item.id %}">
                             <div class="mt-3">{{ cart_item.quantity }}</div>
@@ -38,26 +45,34 @@
                                 <label for="Quantity" class="sr-only">New Qty</label>
                                 <div class="input-group d-inline">
                                     <div class="input-group-addon mt-2">New Qty</div>
-                                    <input class="input-group-addon" name="quantity" type="number" min="0" max="999" class="form-control" required>
+                                    <input class="input-group-addon" name="quantity" type="number" min="0" max="999"
+                                        class="form-control" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn"><i class="fas fa-check adjust-quantity-button"></i></button>
+                            <button type="submit" class="btn"><i
+                                    class="fas fa-check adjust-quantity-button"></i></button>
                         </form>
                     </td>
+                    <!-- Item Total -->
                     <td class="align-middle">£{{ cart_item.line_total }}</td>
-                    <td class="align-middle"><a href="{% url 'delete_from_cart' cart_item.id %}"><i class="fas fa-trash delete-item-button"></i></a></td>
+                    <!-- Delete Item -->
+                    <td class="align-middle"><a href="{% url 'delete_from_cart' cart_item.id %}"><i
+                                class="fas fa-trash delete-item-button"></i></a></td>
                 </tr>
                 {% endfor %}
-                    <tr>
-                        <td colspan="3" class="text-left align-middle">
-                            <h2>Total:</h2>
-                        </td>
-                        <td class="d-none d-sm-table-cell"></td>
-                        <td class="d-none d-sm-table-cell"></td>
-                        <td class="align-middle">£{{ total }}</td>
-                    </tr>
+                <!-- Cart Total -->
+                <tr>
+                    <td colspan="3" class="text-left align-middle">
+                        <h2>Total:</h2>
+                    </td>
+                    <td class="d-none d-sm-table-cell"></td>
+                    <td class="d-none d-sm-table-cell"></td>
+                    <td class="align-middle">£{{ total }}</td>
+                </tr>
+                <!-- /Cart Total -->
             </tbody>
         </table>
+        <!-- /Cart Table -->
         <div class="row">
             <div class="col-md-3 offset-md-9 text-right">
                 <a class="btn btn-warning btn-block" href="{% url 'products:list_of_products' %}">Continue Shopping</a>

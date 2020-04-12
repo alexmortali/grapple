@@ -6,14 +6,15 @@
 
 {% block content %}
 <div class="container">
+    <!-- Back Links -->
     <div class="row mt-4">
         <div class="col-12 d-inline">
             <a href="{% url 'index' %}" class="back-link d-inline"><i
                     class="fas fa-arrow-circle-left mr-2"></i><i>Home</i></a> / <a
-                href="{% url 'products:list_of_products' %}"
-                class="back-link d-inline"><i>All products</i></a>
+                href="{% url 'products:list_of_products' %}" class="back-link d-inline"><i>All products</i></a>
         </div>
     </div>
+    <!-- Add Review Form -->
     <div class="row">
         <div class="col-12 col-md-6 mx-auto">
             <form action="#" method="POST" class="add-review-form px-5 py-5 mt-4">

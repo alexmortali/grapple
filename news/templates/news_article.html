@@ -5,6 +5,7 @@
 {% block content %}
 <div class="container">
 
+    <!-- Page Heading -->
     <div class="row">
         <div class="col-12 my-5 d-inline">
             <a href="{% url 'index' %}" class="back-link d-inline"><i
@@ -13,6 +14,7 @@
         </div>
     </div>
 
+    <!-- Post Heading -->
     <div class="row">
         <div class="col-12 text-center">
             <h1 class="page-title">{{post.title}}</h1>
@@ -20,16 +22,20 @@
         </div>
     </div>
 
+    <!-- Post Image -->
     <div class="row mt-3">
         <div class="col-12">
             <div class="post-image mx-auto" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')"></div>
         </div>
     </div>
 
+    <!-- Post Content + Latest Articles -->
     <div class="row mt-4">
+        <!-- Content -->
         <div class="col-xs-12 col-sm-8">
             <p class="post-content px-4">{{ post.content}}</p>
         </div>
+        <!-- Articles -->
         <div class="col-xs-12 col-sm-4 mx-auto mb-4">
             <div class="card">
                 <div class="card-header">Latest Articles
@@ -46,5 +52,6 @@
             </div>
         </div>
     </div>
+    <!-- /Post Content + Latest Articles -->
 </div>
 {% endblock %}

@@ -31,9 +31,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
         </li>
+        <!-- Categories -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -48,14 +50,15 @@
             {% endfor %}
           </div>
         </li>
+        <!-- News -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'news:news_home' %}">News</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         {% if user.is_authenticated %}
+        <!-- Cart -->
         <li class="nav-item">
-          <!--<a class="nav-link" href="{% url 'view_cart' %}">Cart</a>-->
           <a class="nav-link" href="{% url 'view_cart' %}">
             <i class="fas fa-shopping-cart"></i> Cart
             {% if product_count > 0 %}
@@ -63,26 +66,33 @@
             {% endif %}
           </a>
         </li>
+        <!-- Logout -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
         </li>
         {%  else %}
+        <!-- Sign Up -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'registration' %}">Sign Up</a>
         </li>
+        <!-- Login -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
         {% endif %}
       </ul>
+      <!-- Search -->
       <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>
+  <!-- /NavBar -->
 
+  <!-- Main Content -->
   <main class="min-vh-100">
+    <!-- Messages -->
     {% if messages %}
     {% for message in messages %}
     <div class="message-box alert alert-dismissable alert-info mx-auto my-2">
@@ -93,16 +103,21 @@
     </div>
     {% endfor %}
     {% endif %}
+    <!-- Block Content -->
     {% block content %} {% endblock %}
   </main>
+  <!-- /Main Content -->
 
+  <!-- Footer -->
   <footer class="container-fluid bg-light py-5">
     <div class="container">
       <div class="row">
+        <!-- Contact + About -->
         <div class="col-6 align-self-center">
           <a class="font-color" href="/about/">About</a><br>
           <a class="font-color" href="/contact/">Contact Us</a>
         </div>
+        <!-- Social Media Links -->
         <div class="col-6 align-self-center text-center fa-2x">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -111,7 +126,12 @@
       </div>
     </div>
   </footer>
+  <!-- /Footer -->
+
+  <!-- Vanilla Top -->
   <a href="#!" class="vanillatop"></a>
+
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

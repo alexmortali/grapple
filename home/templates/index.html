@@ -15,16 +15,16 @@
     <div class="row mx-auto justify-content-center my-2">
         {% for category in categories %}
             {% if category.featured %}
-            <div class="col-12 col-sm-6 col-md-4 ">
-                <a class="link font-color" href="{% url 'products:list_of_products_by_category' category.slug %}">
-                    <div class="category-section">
-                        <div class="cat-image" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
-                        <div class="category-title text-center text-uppercase">
-                            {{ category.title|title }}
+                <div class="col-12 col-sm-6 col-md-4 ">
+                    <a class="link font-color" href="{% url 'products:list_of_products_by_category' category.slug %}">
+                        <div class="category-section">
+                            <div class="cat-image" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
+                            <div class="category-title text-center text-uppercase">
+                                {{ category.title|title }}
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             {% endif %}
         {% endfor %}
     </div>
@@ -60,7 +60,7 @@
     </div>
     <div class="row my-4">
         {% for post in featured_posts %}
-            {% include 'news_card.html' %}
+        {% include 'news_card.html' %}
         {% endfor %}
     </div>
     <!-- /Featured News Posts -->

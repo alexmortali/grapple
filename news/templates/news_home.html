@@ -4,12 +4,12 @@
 
 {% block content %}
 <div class="container">
+    <!-- Page Heading -->
     <div class="row mt-5">
         <div class="col-12">
             <h1 class="page-title">News + Events</h1>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12 d-inline">
             <a href="{% url 'index' %}" class="back-link d-inline"><i
@@ -17,29 +17,29 @@
         </div>
     </div>
 
+    <!-- Featured Posts -->
     <div class="row mt-5">
         <div class="col-12">
             <h2 class="page-title text-center">Featured Posts</h2>
             <hr class="w-75 mx-auto my-2">
         </div>
     </div>
-
     <div class="row my-4">
         {% for post in featured_posts %}
-            {% include 'news_card.html' %}
+        {% include 'news_card.html' %}
         {% endfor %}
     </div>
 
+    <!-- All Posts -->
     <div class="row mt-5">
         <div class="col-12">
             <h2 class="page-title text-center">All Posts</h2>
             <hr class="w-75 mx-auto my-2">
         </div>
     </div>
-
     <div class="row my-4">
         {% for post in posts %}
-            {% include 'news_card.html' %}
+        {% include 'news_card.html' %}
         {% endfor %}
     </div>
 </div>
