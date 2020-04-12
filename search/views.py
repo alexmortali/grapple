@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from products.models import Product
+from products.constants import ORDER_BY_CHOICES
 
 # Create your views here.
+
 
 def search_products(request):
     products = Product.objects.filter(name__icontains=request.GET['q'])
@@ -9,5 +11,6 @@ def search_products(request):
     search_request = request.GET['q']
     context = {'products': products,
                'page_title': 'Search Results',
-               'search_request': search_request}
+               'search_request': search_request,
+               'order_by_choices': ORDER_BY_CHOICES}
     return render(request, template, context)
