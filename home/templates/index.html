@@ -18,7 +18,7 @@
                 <div class="col-12 col-sm-6 col-md-4 ">
                     <a class="link font-color" href="{% url 'products:list_of_products_by_category' category.slug %}">
                         <div class="category-section">
-                            <div class="cat-image" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
+                            <div class="cat-image jumbo-background" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
                             <div class="category-title text-center text-uppercase">
                                 {{ category.title|title }}
                             </div>

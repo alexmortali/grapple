@@ -51,11 +51,11 @@
                         {% if search_request %}
                         We currently have no <i>{{ search_request}}</i> available..
                         Why not check out all of our available products
-                        <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        <a href="{% url 'products:list_of_products' %}"><i>here</i></a>
                         {% else %}
                         We currently have no products available..
                         Why not check out all of our available products
-                        <a class="font-color" href="{% url 'products:list_of_products' %}"><i>here</i></a>
+                        <a href="{% url 'products:list_of_products' %}"><i>here</i></a>
                         {% endif %}
                     </p>
                 </div>
