@@ -146,6 +146,8 @@ Along with adding shadows I made some unplanned changes to the about page. This 
 #### Automated testing
 Each app has their own tests created using Django TestCase class. Views, forms and Models were tested as much as possible using unit tests. In all, 31 tests were written. All tests pass successfully.
 
+Travis-CI integration has been completed and also shows all tests completing successfully, with the project showing as "build: passing".
+
 #### Manual testing 
 Along with the automated testing the website was constantly tested during the development process. Browser developer tools such as chrome developer tools were used to test the responsivity of the sire along with responses from the server. Extensive manual testing has been completed to check that the site performs as it should in different environments and in different browsers. During and after each piece of the site was developed it was manually tested to ensure it works properly.
 
