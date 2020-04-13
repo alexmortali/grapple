@@ -4,7 +4,7 @@ from django.db.models import Max
 from .forms import QuantityForm, SizeForm
 from .models import Category, Product
 from .helper_functions import *
-from .constants import *
+from .constants import ORDER_BY_CHOICES, products_per_page
 from reviews.models import Review
 # Create your views here.
 
