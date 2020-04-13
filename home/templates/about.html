@@ -7,7 +7,48 @@
     <h1 class="page-title">About - Grapple</h1>
 </div>
 <div class="container">
-    <div class="row my-5">
+    <!-- Counter Section -->
+    <div class="row mt-5 mb-3 p-5">
+        <!-- Products -->
+        <div class="col-md-4 mb-5">
+            <div class="row">
+                <div class="col-6 p-0">
+                    <div class="display-4 text-right counter info-icon" data-target="{{ total_products }}">0</div>
+                </div>
+                <div class="col-6">
+                    <p class="text-uppercase mb-1">Products</p>
+                    <p class="mb-0"><i class="info-icon fas fa-shopping-cart fa-2x mb-0"></i></p>
+                </div>
+            </div>
+        </div>
+        <!-- Orders -->
+        <div class="col-md-4 mb-5">
+            <div class="row">
+                <div class="col-6 p-0">
+                    <h4 class="display-4 text-right counter info-icon" data-target="{{  total_orders }}">0</h4>
+                </div>
+                <div class="col-6">
+                    <p class="text-uppercase mb-1">Orders</p>
+                    <p class="mb-0"><i class="info-icon fas fa-user fa-2x mb-0"></i></p>
+                </div>
+            </div>
+        </div>
+        <!-- Satisfaction -->
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-6 p-0">
+                    <h4 class="display-4 text-right info-icon" data-target="60"><span class="counter"
+                            data-target="{{ review_percentage }}">0</span>%</span></h4>
+                </div>
+                <div class="col-6">
+                    <p class="text-uppercase mb-1">Satisfaction</p>
+                    <p class="mb-0"><i class="info-icon fas fa-smile fa-2x mb-0"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Counter Section -->
+    <div class="row mb-5">
         <!-- About Image -->
         <div class="col-xs-12 col-md-6 mb-4">
             <div class="about-image jumbo-background"></div>
