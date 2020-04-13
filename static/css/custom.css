@@ -25,9 +25,7 @@ body {
 
 .link {
     font-size: 100%;
-    transition-property: font-size;
-    transition-duration: .05s;
-    transition-timing-function: linear;
+    transition-property: font-size .05s linear;
 }
 
 .link:hover {
@@ -262,6 +260,16 @@ body {
 .average-number {
     font-size: 120%;
     font-weight: 500;
+}
+
+.review-icon {
+    font-size: 100%;
+    padding: 5%;
+    transition: all .2s linear;
+}
+
+.rotate {
+    transform: rotate(180deg);
 }
 
 .red {
