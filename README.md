@@ -2,6 +2,8 @@ Code Institute - Full Stack Frameworks with Django Milestone Project
 Grapple
 by Alex Mortali  
 
+[![Build Status](https://travis-ci.org/alexmortali/project-four-grapple.svg?branch=master)](https://travis-ci.org/alexmortali/project-four-grapple)
+
 This is an online ecommerce store where users come to view/purchase BJJ Equipment and training gear.
 Users can sign up, search and filter products, add products to their cart and purchase products. 
 There is also a news and events section to keep users up to date.
@@ -42,9 +44,10 @@ Users can interact with the site in many ways.. They can:
 #### User Stories  
   - I would like to purchase mulitple items at once.  
   - I would like to be able to leave reviews on products.  
-  - I would like to view similar product of the same category in a list.  
+  - I would like to view similar products of the same category in a list.  
   - I would like to create my own account.  
   - I would like to read other users reviews on products.  
+  - I would like access to blog articles about Jiu Jitsu without creating an account.
   - I would like to see the contact information of the company should I need to contact them.  
 
 #### Colour Pallet  
@@ -56,8 +59,12 @@ Red is used to be more eye catching and stand out. It used in the reviews sectio
 Green is used for any buttons that can be considered progressive or that this button will submit something and take action. For example when searching products, when submitting forms, when adding something to your cart. They are all progressive actions and by keeping the same color for all of these actions aids the user when using the site.  
 
 #### Typography
-For the font 'Roboto' is imported from [google fonts](https://fonts.google.com/) and used throughout the site. It is a clear and simple font that is easy to read and does not interupt the users 
-interaction with the site. A soft black is also used for the font accross the site, keeping it consistent and easy to read.
+For the font 'Roboto' is imported from [google fonts](https://fonts.google.com/) and used throughout the site. It is a clear and simple font that is easy to read and does not interupt the users interaction with the site. A soft black is also used for the font accross the site, keeping it consistent and easy to read.
+
+#### Design Changes
+When coming to the end of development I felt like some pages lacked style and iterest. This is why I chose to the shadow class to cards and buttons, it allows each element to stand out on the page. This is particularly good when viewing the news home page or all products page as it stops all the elements blending in together and allows each item to be differentiated from the next. 
+
+Along with adding shadows I made some unplanned changes to the about page. This page was particularly boring so I added a counter section which the user will see when they load the page. The interaction with the user by seeing the numbers go up may make them more interested in the page and go on to read the about content.
 
 # Features  
 ### Current Features  
@@ -65,7 +72,7 @@ interaction with the site. A soft black is also used for the font accross the si
    - This allows users to fill in a form and create an account. If a username already exists the user will be told to try another username. If the passwords don't match the user will also be told.  
 
   #### Login:
-   - This allows users to login to their account. It checks to see if the username exists, if it doesn't it tells them. If it does it checks the password they have entered vs the password stored in the database. If they match the user is logged in and returned to the home page, if they don't the user is notified that the passwords don't match.  
+   - This allows users to login to their account. It checks to see if the username exists, if it doesn't it tells them. If it does it checks the password they have entered vs the password stored in the database. If they match the user is logged in and returned to the home page, if they don't the user is notified that the passwords don't match. Once logged in a user will now have access to their cart and from here they can go on to purchase products.  
 
   #### Reset Passowrd:
   - If a user has forgotten their password then they can reset it. They will receive and email which will contain a link allowing them to reset their password.  
@@ -95,7 +102,8 @@ interaction with the site. A soft black is also used for the font accross the si
    - This allows users to Logout out of their profile. This link is in the nav and is accessible from all pages. It logs the user out and send them to home page telling them they have been logged out.
 
 ### Features Left To Implement  
-In the future I would like to add a my profile page. Here users could see their previous orders, save an address for easier checkout and save products to a list that could be viewed from here.
+ - Add a my profile page. Here users could see their previous orders, save an address for easier checkout and save products to a list that could be viewed from here.
+ - Add a carousel to product detail page so products and contain more than one image.
 
 # Technologies Used   
 
@@ -125,14 +133,155 @@ In the future I would like to add a my profile page. Here users could see their 
 
 # Testing  
 
-### Tests Conducted 
+### Validator Tests Conducted 
+ - HTML Code was put through [W3 HTML Validator](https://validator.w3.org/) which reported minor issues such as 
+ "The element button must not appear as a descendant of the a element." 
+ This has not been changed as it is done for design reasons and the funcitonality still works perfect.
+ - CSS Code was put through [W3 CSS Validator](https://jigsaw.w3.org/css-validator/) which reported no problems.
+ - Java Script Code was put through [Esprima Syntax Validator](https://esprima.org/demo/validate.html) and was found to be syntactically valid.
+ - All python code was put through PEP8 Validator with some problems with no problems.
+ - The site was tested on Chrome / Safari and Micosoft Edge on multiple devices including iPhone 7, iPad, laptop and desktop. To ensure the site is responsive and responds correctly 
+ the site was contanstly tested on chrome developer tools throughout development.
 
+#### Automated testing
+Each app has their own tests created using Django TestCase class. Views, forms and Models were tested as much as possible using unit tests. In all, 31 tests were written. All tests pass successfully.
 
-#### Manual testing
+#### Manual testing 
+Along with the automated testing the website was constantly tested during the development process. Browser developer tools such as chrome developer tools were used to test the responsivity of the sire along with responses from the server. Extensive manual testing has been completed to check that the site performs as it should in different environments and in different browsers. During and after each piece of the site was developed it was manually tested to ensure it works properly.
 
+#### Example of manual tests below:
+##### Home Page
+ - Click on navigation links and confirm they are going to the correct pages
+ - If user is not logged in, "Login/Register" is displayed in the navbar and clicking the links will bring you to the relevant page.
+ - If user is logged in, "Cart/Logout" is displayed in the navbar and clicking the links will bring you to the relevant page..
+ - Click on links to featured categories and ensure they are going to the correct pages.
+ - Click on footer links and confirm they are going to the correct pages
+ - Click on news articles 'read more' links and ensure they go to correct article.
+ - Ensure arrow displays when scrolling down the page and when clicked return you to the top of the page.
+ - Ensure featured categories links transform when hovered over.
+
+##### About Page
+ - Ensure correct image is shown.
+
+##### Contact Page
+ - Ensure Google Map is showing correct location.
+ - Click on 'view larger map' and ensure page opens in different browser and correct location is shown.
+
+##### News Home Page
+ - Confirm that only featured posts are shown in the featured posts section.
+ - Click on Home back link and confirm it goes to Home page.
+ - Click on News posts 'read more' link and confirm it goes to the correct article page.
+
+##### News Post Page
+ - Confirm that correct information is displaying for the article.
+ - Click on Home/News back links and confirm it goes to relevant page.
+ - Click on latest article links and confirm they go to the correct article page.
+
+##### All Products Page
+ - Confirm that All products are displaying.
+ - Check that pagination is working. This was done by lowering the number of items per page to 1.
+ - Click on Home back link and confirm it goes to relevant page.
+ - Click on each product and confirm they go to the correct product page.
+ - Ensure when hovering over each product the correct transitions are occuring.
+ - Check that all the sort options are loading from the selection box.
+ - Check that products reorder themselves once a sort option has been submitted.
+
+##### Products by Category Page
+ - Confirm that only products withing the category are displaying.
+ - Confirm that the page title is the category tite.
+ - Check that pagination is working. This was done by lowering the number of items per page to 1.
+ - Click on Home/All Products back links and confirm it goes to relevant page.
+ - Click on each product and confirm they go to the correct product page.
+ - Ensure when hovering over each product the correct transitions are occuring.
+ - Check that all the sort options are loading from the selection box.
+ - Check that products reorder themselves once a sort option has been submitted.
+
+##### Product Detail Page
+ - Confirm that correct information is displaying for the product.
+ - Click on Home/category back links and confirm it goes to relevant page.
+ - Check to Size / Quantity forms are displaying correctly
+ - Click on 'Add to Cart' button and check the product has been added with the correct size / quantity.
+ - Check that the reviews section is displaying or that it says 0 reviews.
+ - Click on 'leave a review' link and ensure it take you to the 'add review' form.
+
+##### Add Review Page
+ - Confirm that the add review form is loading correctly.
+ - Click on Home/All Products back links and confirm it goes to relevant page.
+ - Submit the form with no information to ensure the form shows fields that are needed.
+ - Test max characters out on form fields.
+ - Fill in form correctly and submit it to ensure review is added and user is returned to product page.
+
+##### Cart Page
+ - Confirm that the cart loading correctly with the correct product / total.
+ - Click on coninue shopping/proceed links and confirm it goes to relevant page.
+ - Adjust the quantity of an item and ensure the new quantity is updated correctly.
+ - Delete an item from the cart and ensure it has gone.
+ - Visit the cart page with no items in cart to ensure proceed button isn't displaying.
+
+##### Checkout Review Page
+ - Confirm that the review table is loading correctly with the correct products / total.
+ - Click on coninue proceed link and confirm it goes to relevant page.
+ - Click on the 'back to cart' link and ensure it goes to the cart page.
+
+##### Checkout Payment Page
+ - Confirm that the review table is loading correctly with the correct products / total.
+ - Click on the 'back to review' link and ensure it goes to the review page.
+ - Ensure both the address form and card details form are loading correctly.
+ - Submit the forms with no information the check form shows required fields.
+ - Submit the forms with the correct information to ensure the forms are saved and user is returned to home page with correct message.
+
+##### Issues when testing
+ - For the majority of the development process there was very little set backs that could be considered an issue. However there was one. In the orignal wireframes the forms for address and payment were supposed to be split and load on different pages address being first then onto payment. However I could not get the data to save correctly so quickly decided to create the checkout/review page and then have both forms on one page, the checkout/payment page. With this the plan was to have the order review at the top of the page and then have both forms side by side below it with the submit button below them. However when both forms were side by side, only on the Chrome browser which ever form was on the left hand side would render but not be editable, you could not select any field to enter data to. Using Chrome Dev tools I managed to narrow this down to the float-left class being used. Once removing this class it made sense to just leave the forms on top of eachother going down the page to avoid further problems. Now forms work properly and users can purchase products.
+
+##### Testing to ensure user stories are met
+- Making sure the user stories were met was a key consideration when testing. All of the stories have been met as the above tests cover all of those scenarios.
+
+##### Other Tests
+Other tests were conducted to check the security of the site. For example trying to manipulate the url, when I was logged out I entered all the urls of the site which require a user be logged. All of these redirected me to the login page. I also tried when logged in going the a page that requires login such as checkout/payment, loggin out, then clicking back page on the browser and this also sent me to the login page.
 
 # Deployement
+This project was developed using [Visual Studio Code](https://code.visualstudio.com/). [Git](https://git-scm.com/) was used for version control and backup. From Github the site is deployed to [Heorku](https://www.heroku.com/).
 
+The results of this can be seen here.
+
+These steps were carried out:
+- Install Python3 and Django to run the application.
+- Create the project - grapple
+- Create git respository, add files not required to gitignore. Git add the rest and commit with 'Initial Commit'
+- Set up file structure including templates and static files.
+- Create env.py file and add to gitignore.
+- Generate a requirements.txt file so Heroku can install the required dependencies to run the app.
+- Create a Procfile to tell Heroku what type of application is being deployed, and how to run it.
+- Create a new app on Heroku to host and run the site.
+- In Heroku add a Postgres Database
+- Retrieve the Postgres DB url and add to env.py
+- Go to the settings.py file and update the DB details to look at the DB hosted on Heroku
+- This is followed by migrations to create tables on heroku database.
+- Create a super user on the new DB.
+- In Heroku, connect newly created app to the correct github repository.
+- Set up config vars.
+- Create a bucket on Amazon S3.
+- Create a custom_storages.py file and add static file settings and media storage information to the setting.py file.
+- Add DISABLE_COLLECTSTATIC with the value of 1 to the Config Variables on Heroku.
+- On completion of the project set debug mode to False in the settings.py file.
+- On Heroku find the "Manual Deploy" section, select the master branch of your repo, and "Deploy Branch"
+
+#### Cloning
+You must have the following tools installed to deploy this project locally:
+ - Python
+ - Git
+You must also have an account set up for the following services:
+ - Amazon AWS + S3 Bucket
+ - Stripe
+ 1. Clone this repository
+ 2. Open a terminal or command prompt
+ 3. Install requirements
+ 4. Set up environment variables
+ 5. Add this file to your .gitignore
+ 6. Migrate the models to create the database tables
+ 7. Create a superuser account so you can access the Django Admin Panel
+ 8. Run the server locally
+ 9. You should now be able to navigate to the local link in the terminal. Append '/admin' to the end to access the admin panel, and log in using the user you just created
 
 # Credits   
 #### CONTENT
