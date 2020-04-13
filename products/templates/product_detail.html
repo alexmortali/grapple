@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% load bootstrap_tags %}
 
 {% block title %}{{ product.name|title }}{% endblock %}
@@ -91,7 +90,17 @@
             <div class="card-body">
                 <h5><span class="red">{{ review.rating }}</span> {{ review.title }}</h5>
                 <p>{{ review.user }} - {{ review.review_date|date:"M d, Y" }}</p>
-                <p>{{ review.review }}</p>
+                <p>{{ review.review|truncatechars:100 }}</p>
+                {% if review.review|length > 100 %}
+                <a class="float-right mb-0 review-icon " onclick="reviewFunction(this)" data-toggle="collapse"
+                    href="#collapseExample{{ forloop.counter }}" role="button" aria-expanded="false"
+                    aria-controls="collapseExample{{ forloop.counter }}">
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <p class="collapse mt-5" id="collapseExample{{ forloop.counter }}">
+                    {{ review.review }}
+                </p>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
