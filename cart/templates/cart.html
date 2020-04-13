@@ -9,7 +9,7 @@
     <h1 class="my-5 page-title">Your Items</h1>
     <div class="cart-contents-font text-center">
         <!-- Cart Table -->
-        <table class="table table-hover">
+        <table class="table table-hover shadow">
             <!-- Top Row -->
             <thead class="thead-dark">
                 <tr>
@@ -74,10 +74,10 @@
         </table>
         <!-- /Cart Table -->
         <div class="row">
-            <div class="col-md-3 offset-md-9 text-right">
-                <a class="btn btn-warning btn-block" href="{% url 'products:list_of_products' %}">Continue Shopping</a>
+            <div class="col-md-3 offset-md-9 text-right mt-3">
+                <a class="btn btn-warning btn-block shadow" href="{% url 'products:list_of_products' %}">Continue Shopping</a>
                 {% if cart_items %}
-                <a class="btn btn-success btn-block" href="{% url 'checkout:review' %}">Proceed to Checkout</a>
+                <a class="btn btn-success btn-block shadow" href="{% url 'checkout:review' %}">Proceed to Checkout</a>
                 {% endif %}
             </div>
         </div>

@@ -38,8 +38,8 @@
             </div>
 
             <!-- Billing Address Form -->
-            <div class="col-12 col-md-6 mt-4 d-inline pay-form">
-                <div class="card">
+            <div class="col-12 col-md-6 d-inline pay-form">
+                <div class="card shadow">
                     <div class="card-header font-weight-bold">Address Details</div>
                     <div class="card-body">
                         {{ billing_address_form|as_bootstrap }}
@@ -49,7 +49,7 @@
 
             <!-- Payment Form -->
             <div class="col-12 col-md-6 d-inline">
-                <div class="card">
+                <div class="card shadow my-5">
                     <div class="card-header font-weight-bold">Card Details</div>
                     <div class="card-body">
                         {{ payment_form|as_bootstrap }}
@@ -59,7 +59,7 @@
 
             {% csrf_token %}
             <div class="form-group col-12 text-center">
-                <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value="Pay Now">
+                <input class="btn btn-success shadow" id="submit_payment_btn" name="commit" type="submit" value="Pay Now">
             </div>
         </form>
     </div>
