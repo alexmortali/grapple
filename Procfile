@@ -1,0 +1,1 @@
+web: gunicorn grapple.wsgi:application --log-file -
