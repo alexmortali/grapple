@@ -6,7 +6,7 @@
         <div class="card-body news-card-body">
             <div class="news-home-image jumbo-background" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')"></div>
             <div class="px-3 pt-4 pb-2">
-                {{ post.preview_text }}
+                {{ post.preview_text|truncatechars:100 }}
             </div>
             <div class="px-3 pt-4">
                 <p class="news-preview-text text-capitalize"><i>{{ post.author }} - {{post.created.date}}</i></p>
