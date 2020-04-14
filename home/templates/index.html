@@ -15,10 +15,10 @@
     <div class="row mx-auto justify-content-center my-2">
         {% for category in categories %}
             {% if category.featured %}
-                <div class="col-12 col-sm-6 col-md-4 ">
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
                     <a class="link font-color" href="{% url 'products:list_of_products_by_category' category.slug %}">
                         <div class="category-section">
-                            <div class="cat-image jumbo-background" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
+                            <div class="cat-image jumbo-background mb-2" style="background-image: url('{{ MEDIA_URL }}{{ category.image }}')"></div>
                             <div class="category-title text-center text-uppercase">
                                 {{ category.title|title }}
                             </div>

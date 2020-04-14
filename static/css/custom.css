@@ -150,11 +150,14 @@ body {
 
 .category-section {
     position: relative;
-    height: 200px;
+    height: 220px;
 }
 
 .category-title {
     font-size: 120%;
+    letter-spacing: 1px;
+    bottom: -15px!important;
+    font-weight: 500;
 }
 
 .category-title, .product-info {
