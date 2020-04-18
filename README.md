@@ -15,7 +15,7 @@ There is also a news and events section to keep users up to date.
 A live version of the site can be found [here](https://final-project-grapple.herokuapp.com/)
 
 A superuser has been created with the credentials:
-> username: admin
+> username: admin  
 > password: adminpassword
 
 # UX  
