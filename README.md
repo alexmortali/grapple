@@ -12,7 +12,11 @@ There is also a news and events section to keep users up to date.
 
 # Demo  
 
-A live version of the site can be found [here](https://final-project-grapple.herokuapp.com/){:target="_blank" rel="noopener"}
+A live version of the site can be found [here](https://final-project-grapple.herokuapp.com/)
+
+A superuser has been created with the credentials:
+> username: admin
+> password: adminpassword
 
 # UX  
 
@@ -104,6 +108,9 @@ Along with adding shadows I made some unplanned changes to the about page. This 
 
   #### Add Reviews:
    - Users can leave reviews for products they wish too. Users simply fill out a form choosing the product, giving the review a title and a rating the submit the form to leave the review.
+  
+  #### Read Reviews:
+   - Users can read other users reviews at the bottom of the products page. A good example of multiple reviews being added to one product is [here](https://final-project-grapple.herokuapp.com/products/ibjjf-2020-short-sleeve/). This should help to illustrate the design thinking of using red to highlight the rating, as menntioned above. 
 
   #### Logout:
    - This allows users to Logout out of their profile. This link is in the nav and is accessible from all pages. It logs the user out and send them to home page telling them they have been logged out.
