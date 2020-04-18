@@ -3,6 +3,7 @@
 .~c9
 __pycahce__/
 env.py
-.jpg
-.png
-media/
+*.jpg
+*.png
+media/images/
+media/news/
