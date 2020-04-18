@@ -12,7 +12,7 @@ There is also a news and events section to keep users up to date.
 
 # Demo  
 
-A live version of the site can be found [here](https://final-project-grapple.herokuapp.com/)
+A live version of the site can be found [here](https://final-project-grapple.herokuapp.com/){:target="_blank" rel="noopener"}
 
 # UX  
 
@@ -114,37 +114,37 @@ Along with adding shadows I made some unplanned changes to the about page. This 
 
 # Technologies Used   
 
-- **[Visual Studio Code]**(https://code.visualstudio.com/): Was used to code the project.
-- **[GitHub]**(https://github.com/): Used as a remote repository for all project code with git version control.
+- [Visual Studio Code](https://code.visualstudio.com/): Was used to code the project.
+- [GitHub](https://github.com/): Used as a remote repository for all project code with git version control.
 
 #### Front End Technologies  
- - **[HTML]**(https://html.com/): HTML is used as the skeleton of the website.  
- - **[CSS]**(https://devdocs.io/css/): CSS is used to control the presentation of the website.    
- - **[jQuery(3.3.1)]**(https://jquery.com/): Javascript framework used to for Bootstrap functions.
- - **[JavaScript]**(https://developer.mozilla.org/en-US/docs/Web/JavaScript): Javascript is used for vaiours functions such as processing stripe payments.
- - **[Google Fonts]**(https://fonts.google.com/): Google font Roboto is used across the site. 
- - **[Google Maps Api]**(https://cloud.google.com/maps-platform/): Used on the contact page to display location.
- - **[Font Awesome]**(https://fontawesome.bootstrapcheatsheets.com/): Font awesome icons help style the site.  
- - **[Stripe]**(https://stripe.com/gb): Stripe is used to handle payments securely.
- - **[Vanilla Top]**(https://www.npmjs.com/package/vanillatop) Allows users to return to the top of the page.
+ - [HTML](https://html.com/): HTML is used as the skeleton of the website.  
+ - [CSS](https://devdocs.io/css/): CSS is used to control the presentation of the website.    
+ - [jQuery(3.3.1)](https://jquery.com/): Javascript framework used to for Bootstrap functions.
+ - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript): Javascript is used for vaiours functions such as processing stripe payments.
+ - [Google Fonts](https://fonts.google.com/): Google font Roboto is used across the site. 
+ - [Google Maps Api](https://cloud.google.com/maps-platform/): Used on the contact page to display location.
+ - [Font Awesome](https://fontawesome.bootstrapcheatsheets.com/): Font awesome icons help style the site.  
+ - [Stripe](https://stripe.com/gb): Stripe is used to handle payments securely.
+ - [Vanilla Top](https://www.npmjs.com/package/vanillatop) Allows users to return to the top of the page.
 
 #### Frameworks  
-- **[Django]**(https://www.djangoproject.com/): This project uses Django as it's framework to connect the back end to the front end.  
-- **[Bootstrap(4.3.1)]**(https://getbootstrap.com/): Bootstrap has been used as a framework to make the site responsive.  
+- [Django](https://www.djangoproject.com/): This project uses Django as it's framework to connect the back end to the front end.  
+- [Bootstrap(4.3.1)](https://getbootstrap.com/): Bootstrap has been used as a framework to make the site responsive.  
 
 #### Back End Technologies  
- - **[Python(3.7.6)]**(https://www.python.org/doc/): The language used for all backend functions on this project.  
- - **[Heorku]**(https://www.heroku.com/): Hosts the deployed version of this project.  
- - **[Heroku Postgres - PostgreSQL]**(https://devcenter.heroku.com/categories/heroku-postgres): Relational database management system.
- - **[Amazon S3]**(https://aws.amazon.com/free/storage/): Used to store staticfiles and media folders and files.
+ - [Python(3.7.6)]*(https://www.python.org/doc/): The language used for all backend functions on this project.  
+ - [Heorku](https://www.heroku.com/): Hosts the deployed version of this project.  
+ - [Heroku Postgres - PostgreSQL](https://devcenter.heroku.com/categories/heroku-postgres): Relational database management system.
+ - [Amazon S3](https://aws.amazon.com/free/storage/): Used to store staticfiles and media folders and files.
 
 # Testing  
 
 ### Validator Tests Conducted 
- - HTML Code was put through **[W3 HTML Validator]**(https://validator.w3.org/) which reported minor issues such as "The element button must not appear as a descendant of the a element." This has not been changed as it is done for design reasons and the funcitonality still works perfect.
- - CSS Code was put through **[W3 CSS Validator]**(https://jigsaw.w3.org/css-validator/) which reported no problems.
- - Java Script Code was put through **[Esprima Syntax Validator]**(https://esprima.org/demo/validate.html) and was found to be syntactically valid.
- - All python code was put through **[PEP8 Validator]**(http://pep8online.com/) with no problems, other than some white space at the end of lines and blank lines between functions.
+ - HTML Code was put through [W3 HTML Validator](https://validator.w3.org/) which reported minor issues such as "The element button must not appear as a descendant of the a element." This has not been changed as it is done for design reasons and the funcitonality still works perfect.
+ - CSS Code was put through [W3 CSS Validator](https://jigsaw.w3.org/css-validator/) which reported no problems.
+ - Java Script Code was put through [Esprima Syntax Validator](https://esprima.org/demo/validate.html) and was found to be syntactically valid.
+ - All python code was put through [PEP8 Validator](http://pep8online.com/) with no problems, other than some white space at the end of lines and blank lines between functions.
  - The site was tested on Chrome / Safari and Micosoft Edge on multiple devices including iPhone 7, iPad, laptop and desktop. To ensure the site is responsive and responds correctly the site was contanstly tested on chrome developer tools throughout development.
 
 #### Automated testing
