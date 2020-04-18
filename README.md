@@ -8,7 +8,7 @@ This is an online ecommerce store where users come to view/purchase BJJ Equipmen
 Users can sign up, search and filter products, add products to their cart and purchase products. 
 There is also a news and events section to keep users up to date.
 
-! [Grapple screen examples](https://alex-grapple.s3.eu-west-2.amazonaws.com/static/jumbo-images/readme-image.png)
+![Grapple screen examples](https://alex-grapple.s3.eu-west-2.amazonaws.com/static/jumbo-images/readme-image.png)
 
 # Demo  
 
