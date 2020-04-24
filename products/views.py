@@ -4,7 +4,7 @@ from django.db.models import Max
 from .forms import QuantityForm, SizeForm
 from .models import Category, Product
 from .helper_functions import *
-from .constants import ORDER_BY_CHOICES, products_per_page
+from .constants import ORDER_BY_CHOICES, PRODUCTS_PER_PAGE
 from reviews.models import Review
 # Create your views here.
 
@@ -26,7 +26,7 @@ def list_of_products_by_category(request, category_slug):
 
     if request.method == "GET":
         products = Product.objects.filter(category=category)
-        paginator = Paginator(products, products_per_page)
+        paginator = Paginator(products, PRODUCTS_PER_PAGE)
         products = paginator_function(request, paginator)
         context['products'] = products
 
@@ -37,7 +37,7 @@ def list_of_products_by_category(request, category_slug):
         selected_filter = request.POST.get('filter_select')
         products = Product.objects.filter(
             category=category).order_by(selected_filter)
-        paginator = Paginator(products, products_per_page)
+        paginator = Paginator(products, PRODUCTS_PER_PAGE)
         products = paginator_function(request, paginator)
         context['products'] = products
         context['selected-filter'] = selected_filter
@@ -59,7 +59,7 @@ def list_of_products(request):
 
     if request.method == "GET":
         products = Product.objects.all()
-        paginator = Paginator(products, products_per_page)
+        paginator = Paginator(products, PRODUCTS_PER_PAGE)
         products = paginator_function(request, paginator)
 
         context['products'] = products
@@ -70,7 +70,7 @@ def list_of_products(request):
         # Get Users filter option
         selected_filter = request.POST.get('filter_select')
         products = Product.objects.all().order_by(selected_filter)
-        paginator = Paginator(products, products_per_page)
+        paginator = Paginator(products, PRODUCTS_PER_PAGE)
         products = paginator_function(request, paginator)
 
         context['products'] = products

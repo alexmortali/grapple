@@ -6,7 +6,7 @@ ORDER_BY_CHOICES = (
     ('-name', 'Name: Z to A'),
 )
 
-products_per_page = 12
+PRODUCTS_PER_PAGE = 12
 
 SIZE_CHOICES = (
     ("Extra Small", "XS"),
