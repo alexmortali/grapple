@@ -132,7 +132,6 @@ Along with adding shadows I made some unplanned changes to the about page. This 
  - [Google Fonts](https://fonts.google.com/): Google font Roboto is used across the site. 
  - [Google Maps Api](https://cloud.google.com/maps-platform/): Used on the contact page to display location.
  - [Font Awesome](https://fontawesome.bootstrapcheatsheets.com/): Font awesome icons help style the site.  
- - [Stripe](https://stripe.com/gb): Stripe is used to handle payments securely.
  - [Vanilla Top](https://www.npmjs.com/package/vanillatop) Allows users to return to the top of the page.
 
 #### Frameworks  
@@ -140,10 +139,11 @@ Along with adding shadows I made some unplanned changes to the about page. This 
 - [Bootstrap(4.3.1)](https://getbootstrap.com/): Bootstrap has been used as a framework to make the site responsive.  
 
 #### Back End Technologies  
- - [Python(3.7.6)]*(https://www.python.org/doc/): The language used for all backend functions on this project.  
+ - [Python(3.7.6)](https://www.python.org/doc/): The language used for all backend functions on this project.  
  - [Heorku](https://www.heroku.com/): Hosts the deployed version of this project.  
  - [Heroku Postgres - PostgreSQL](https://devcenter.heroku.com/categories/heroku-postgres): Relational database management system.
  - [Amazon S3](https://aws.amazon.com/free/storage/): Used to store staticfiles and media folders and files.
+ - [Stripe](https://stripe.com/gb): Stripe is used to handle payments securely.
 
 # Testing  
 
