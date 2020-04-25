@@ -155,7 +155,7 @@ Along with adding shadows I made some unplanned changes to the about page. This 
  - The site was tested on Chrome / Safari and Micosoft Edge on multiple devices including iPhone 7, iPad, laptop and desktop. To ensure the site is responsive and responds correctly the site was contanstly tested on chrome developer tools throughout development.
 
 #### Automated testing
-Each app has their own tests created using Django TestCase class. Views, forms and Models were tested as much as possible using unit tests. In all, 31 tests were written. All tests pass successfully.
+Each app has their own tests created using Django TestCase class. Views, forms and Models were tested as much as possible using unit tests. In all, 32 tests were written. All tests pass successfully.
 
 Travis-CI integration has been completed and also shows all tests completing successfully, with the project showing as "build: passing".
 
@@ -173,8 +173,20 @@ Along with the automated testing the website was constantly tested during the de
  - Ensure arrow displays when scrolling down the page and when clicked return you to the top of the page.
  - Ensure featured categories links transform when hovered over.
 
+##### Login Page
+ - Enter correct information into the form and ensure user is signed in and redirected to home page with correct message.
+ - Enter an inccorect username/password combination and ensure correct error message is displayed.
+ - Enter no information and submit the form and ensure the required fields message comes up.
+
+##### Registration Page
+ - Enter information into the form and create an account and ensure user is signed in and redirected to home page with correct message.
+ - Enter an inccorect password combination and ensure correct error message is displayed.
+ - Enter no information and submit the form and ensure the required fields message comes up.
+ - Enter an existing users username to the form with other correct information and ensure the correct error message displays.
+
 ##### About Page
  - Ensure correct image is shown.
+ - Load the page and observe the count javascript working correctly. Some adjustments to the timing here were made.
 
 ##### Contact Page
  - Ensure Google Map is showing correct location.
@@ -242,6 +254,7 @@ Along with the automated testing the website was constantly tested during the de
  - Ensure both the address form and card details form are loading correctly.
  - Submit the forms with no information the check form shows required fields.
  - Submit the forms with the correct information to ensure the forms are saved and user is returned to home page with correct message.
+ - Submit the forms with incorrect information to ensure the forms respond with correct error message.
 
 ##### Issues when testing
  - For the majority of the development process there was very little set backs that could be considered an issue. However there was one. In the orignal wireframes the forms for address and payment were supposed to be split and load on different pages address being first then onto payment. However I could not get the data to save correctly so quickly decided to create the checkout/review page and then have both forms on one page, the checkout/payment page. With this the plan was to have the order review at the top of the page and then have both forms side by side below it with the submit button below them. However when both forms were side by side, only on the Chrome browser which ever form was on the left hand side would render but not be editable, you could not select any field to enter data to. Using Chrome Dev tools I managed to narrow this down to the float-left class being used. Once removing this class it made sense to just leave the forms on top of eachother going down the page to avoid further problems. Now forms work properly and users can purchase products.
